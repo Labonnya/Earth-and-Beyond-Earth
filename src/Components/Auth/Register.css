@@ -1,0 +1,57 @@
+.pop{
+    color: #E4DADF;
+    margin-right: 210px;
+    margin-bottom: 20px;
+}
+
+.box1{
+    margin-top: 70px;  
+}
+
+.attr{
+    color: #000
+}
+
+.regtxt2 {
+    color: #E4DADF;
+    text-decoration: underline;
+  color: white;
+  margin-right: 70px;
+}
+
+.regtxt2:hover {
+    color: #224ec0;
+}
+
+.cutie{
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    color: #E4DFDA;
+    font-size: 16px;
+    background: rgb(4,51,75);
+    background: radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%);  
+    padding: 10px 20px 10px 20px;
+    border: solid #E4DFDA 4px;
+    text-decoration: none;
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+.imagee{
+    background-image: url(../../../public/green.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50vh;
+  background-position: center;
+  margin-top: 150px;
+}
+
+.form-container{
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}

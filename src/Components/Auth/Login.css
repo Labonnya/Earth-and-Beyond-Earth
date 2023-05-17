@@ -1,0 +1,28 @@
+imageee{
+    background-image: url(../../../public/mappy.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50vh;
+  background-position: center;
+  margin-top: 150px;
+    }
+    
+    .bg{
+        background-color: #000;
+    }
+    
+    .reg{
+        color: #E4DADF;
+        margin-top: 10px;
+        margin-right: 140px;
+    }
+    
+    .regtxt{
+        color: #E4DADF;
+        text-decoration: underline;
+      color: white;
+    }
+
+    .regtxt:hover{
+        color: #224ec0;
+    }

@@ -1,0 +1,24 @@
+.quiz-option {
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 25px;
+    background: #5E17EB;
+    padding: 10px 20px 10px 20px;
+    border: solid #F7C7DB 4px;
+    text-decoration: none;
+    width: 300px;
+    height: auto;
+}
+
+.quiz-option:hover {
+    background-color: white;
+    border: solid #3a3ea1 4px;
+    text-decoration: none;
+    color: #5E17EB;
+  }
+
+  .ques {
+    font-size: 2vw;
+}
