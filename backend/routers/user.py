@@ -36,8 +36,8 @@ app.add_middleware(
 #Password Hashing
 pwt_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-PROJECT_ID = "8e16e1f7-14bd-4a0e-b265-70d4bbf28d84"
-PRIVATE_KEY = "115e04ef-eb9d-4231-a26f-e6a8e2ae91ae"
+PROJECT_ID = "aa67eab9-95be-4d97-936f-f7e35fe4aa28"
+PRIVATE_KEY = "649eff59-ccd4-4184-b879-07c7af1e84b4"
 
 
 #Create a new user
@@ -63,11 +63,11 @@ def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db
 
     response = requests.post('https://api.chatengine.io/users/', 
         data={
-             "username": new_user.userName,
-    "secret": password_original,
-    "email": new_user.email,
-    "first_name": new_user.fullName.split()[0],
-    "last_name": new_user.fullName.split()[-1],
+            "username": request.userName,
+            "secret": password_original,
+            "email": request.email,
+            "first_name": request.fullName.split()[0],
+            "last_name": request.fullName.split()[-1],
         },
         headers={ "Private-Key": PRIVATE_KEY }
     )
@@ -130,7 +130,6 @@ def get_username_password(email: str,db:Session=Depends(database.get_db),token: 
 
     # Access the 'sub' claim from the decoded token
     user_sub = decoded_token.get('sub')
-    print(email)
     # Example authorization logic: check if the email in the token matches the requested email
     if user_sub != email:
         raise HTTPException(
@@ -144,3 +143,4 @@ def get_username_password(email: str,db:Session=Depends(database.get_db),token: 
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"User not found",
         )
+    
