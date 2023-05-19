@@ -1,7 +1,7 @@
 import sqlite3
 import requests
 from bs4 import BeautifulSoup, Comment
-from fastapi import FastAPI, Depends, HTTPException,status, Query
+from fastapi import FastAPI, Depends, HTTPException,status, Query, Response
 import schema, models, database, oauth2
 from database import engine,SessionLocal
 from sqlalchemy.orm import Session
@@ -13,8 +13,14 @@ from typing import Optional, List
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Union
+import pdfkit
+
+
+
 
 app = FastAPI()
+
+
 
 # Configure CORS middleware
 app.add_middleware(
@@ -157,6 +163,86 @@ async def get_country_history(name: str):
     geography, government, history, general_facts = row
     return {'name': name, 'geography': geography, 'government': government, 'history': history, 'general_facts': general_facts}
 
+def scrape_and_insert_data():
+    url = 'https://www.tutorialspoint.com/general_knowledge/general_knowledge_countries_with_capitals.htm'
+    response = requests.get(url)
+
+    # Parse the HTML content
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Find the table element by its class or ID
+    table = soup.find('table', {'class': 'table'})
+
+    # Extract the table headers
+    headers = [th.text for th in table.select('th')]
+
+    # Extract the table rows
+    rows = []
+    for row in table.select('tr')[1:]:
+        row_data = [td.text for td in row.select('td')]
+        rows.append(row_data)
+
+    # Connect to the database
+    conn = sqlite3.connect('blogs.db')
+    c = conn.cursor()
+
+    # Create the countries table if it does not exist
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS download (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            capitals TEXT,
+            currency TEXT,
+            language TEXT,
+            religion TEXT
+        )
+    ''')
+
+    # Insert the scraped data into the countries table
+    for row in rows:
+        name = row[0]
+        capitals = row[1]
+        currency = row[2]
+        language = row[3]
+        religion = row[4]
+
+        # Execute the SQL INSERT statement
+        c.execute('''
+            INSERT INTO download (name, capitals, currency, language, religion)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (name, capitals, currency, language, religion))
+
+    # Commit the changes and close the connection
+    conn.commit()
+    conn.close()
+
+# Call the function to scrape and insert the data
+scrape_and_insert_data()
+
+@app.get("/table-data")
+async def get_table_data():
+    conn = sqlite3.connect('blogs.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM download")
+    rows = c.fetchall()
+
+    table_data = []
+    for row in rows:
+        table_data.append({
+            "id": row["id"],
+            "name": row["name"],
+            "capitals": row["capitals"],
+            "currency": row["currency"],
+            "language": row["language"],
+            "religion": row["religion"]
+        })
+
+    conn.close()
+
+    return table_data
+
 PROJECT_ID = "c4efceb3-e2bf-4139-8387-ae8cfdfba0a1"
 PRIVATE_KEY = "79a36864-1ca7-47e3-92be-d3f0b76e15e2"
 
@@ -192,4 +278,6 @@ async def root(user: User):
         headers={ "Private-Key": PRIVATE_KEY }
     )
     return response.json()
+
+#jheii
 
