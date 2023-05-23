@@ -43,6 +43,7 @@ class mcq(BaseModel):
 
 
 class showMcq(BaseModel):
+    quiz_id: int
     question: str
     option1: str
     option2: str
@@ -81,13 +82,13 @@ class updateQuiz(BaseModel):
     class Config():
         orm_mode = True
 
-class userOutput(showUserInfo):
-    quizez: List[quiz]
+# class userOutput(showUserInfo):
+#     quizez: List[quiz]
     
 
 
-class quizOutput(quiz):
-    user: List[userInfo]
+# class quizOutput(quiz):
+#     user: List[userInfo]
 
 #class user_quiz(BaseModel):
 #    email: EmailStr
@@ -121,4 +122,18 @@ class TokenData(BaseModel):
 class PasswordReset(BaseModel):
     email: EmailStr
 
+class UserCurrentLevel(BaseModel):
+    current_level: int
 
+class UserScore(BaseModel):
+    total_score: int
+
+class userScoreEmailId(BaseModel):
+    email: EmailStr
+    id: int
+    total_score: int 
+
+class TopScorer(BaseModel):
+    username: str
+    email: EmailStr
+    total_score: int

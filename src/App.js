@@ -12,6 +12,13 @@ import Register from './Components/Auth/Register';
 import Chat from './Components/Chat/Chat';
 import ChatsPage from './Components/Chat/chatsPage';
 import Download from './Components/DownloadInfo/Download';
+import Leaderboard from './Components/Leaderboard/Leaderboard';
+import UserLevelSpecificMCQ from './Components/Quiz/UserLevelSpecificMCQ';
+import AddMCQ from './Components/Quiz/AddMCQ';
+import DeleteMCQ from './Components/Quiz/DeleteMCQ';
+import UpdateMCQ from './Components/Quiz/UpdateMCQ';
+import QuizPage from './Components/Quiz/QuizPage';
+import GamePage from './Components/Game/GamePage';
 
 function App() {
   return (
@@ -25,6 +32,12 @@ function App() {
       <Route path="/quizMode" element={<QuizMode />} />
       <Route path="/quiz" element={<Quiz />} />
       <Route path="/quizCategory" element={<QuizCategory />} />
+      <Route path="/quizPage" element={<QuizPage />} />
+      <Route path="/userLevelSpecificMCQ" element={<UserLevelSpecificMCQ />} />
+      <Route path="/addMCQ" element={<AddMCQ />} />
+      <Route path="/deleteMCQ" element={<DeleteMCQ />} />
+      <Route path="/updateMCQ" element={<UpdateMCQ />} />
+      <Route path="/gamePage" element={<GamePage />} />
       <Route path="/game" element={<Game />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<Register />} />

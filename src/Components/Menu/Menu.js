@@ -52,7 +52,7 @@ const Menu = () => {
         </Link>
         </div>
         <div className="col-4">
-        <Link to='game' className="link-decoration">
+        <Link to='/gamePage' className="link-decoration">
         <Card body className="text-center mx-auto mt-4 menu-card">
           <GiGamepad size="80px" className="my-3" />
           <h3>Game</h3>
@@ -94,6 +94,16 @@ const Menu = () => {
         </Card>
         </Link>
         </div>
+
+        <div className="col-4">
+          <Link className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <GiEarthAsiaOceania size="80px" className="my-3" />
+              <h3>Leaderboard</h3>
+            </Card>
+          </Link>
+        </div>
+
         </div>
        
       </div>
