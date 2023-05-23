@@ -12,13 +12,13 @@ import Register from './Components/Auth/Register';
 import Chat from './Components/Chat/Chat';
 import ChatsPage from './Components/Chat/chatsPage';
 import Download from './Components/DownloadInfo/Download';
-import Leaderboard from './Components/Leaderboard/Leaderboard';
-import UserLevelSpecificMCQ from './Components/Quiz/UserLevelSpecificMCQ';
-import AddMCQ from './Components/Quiz/AddMCQ';
-import DeleteMCQ from './Components/Quiz/DeleteMCQ';
-import UpdateMCQ from './Components/Quiz/UpdateMCQ';
 import QuizPage from './Components/Quiz/QuizPage';
+import UserLevelSpecificMCQ from './Components/Quiz/UserLevelSpecificMCQ';
+import AddMCQ from './Components/Quiz/AddMCQ'
+import DeleteMCQ from './Components/Quiz/DeleteMCQ'
+import UpdateMCQ from './Components/Quiz/UpdateMCQ'
 import GamePage from './Components/Game/GamePage';
+import SpaceScene from './Components/Space/Space'
 
 function App() {
   return (
@@ -44,6 +44,7 @@ function App() {
       <Route path="/chat" element={<Chat />} />
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
+      <Route path="/space" element={<SpaceScene />} />
     </Routes>
     </div>
   );
