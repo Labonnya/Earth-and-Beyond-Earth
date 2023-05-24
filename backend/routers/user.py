@@ -1,5 +1,5 @@
-import sys
 import requests
+import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -193,4 +193,3 @@ def updateLevel(email: str, db: Session = Depends(database.get_db)):
     print(user.current_level)
 
     return {"current_level": user.current_level}
-    
