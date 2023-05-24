@@ -6,6 +6,7 @@ const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const login = () => {
@@ -27,6 +28,10 @@ const AuthProvider = ({ children }) => {
     setToken(givenToken);
   };
 
+  const emailHandle = (givenEmail) => {
+    setEmail(givenEmail);
+  }
+
   const nameHandle = (givenName) => {
     setUsername(givenName)
   }
@@ -36,7 +41,7 @@ const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, token, tokenize, username, nameHandle, password, passHandle }}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, token, tokenize, username, nameHandle, password, passHandle, email, emailHandle }}>
       {children}
     </AuthContext.Provider>
   );

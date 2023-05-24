@@ -17,7 +17,7 @@ class user_plays_quiz(Base):
     total_score = Column(Integer)
 
 # class userInfo(Base):
-#     __tablename__ = 'userInfo'
+#     _tablename_ = 'userInfo'
 
 #     #id = Column(Integer, primary_key=True, index=True)
 #     fullName = Column(String)
@@ -63,7 +63,7 @@ class mcq(Base):
     creator = relationship("quiz", back_populates="quizzes")
 
 # class quiz(Base):
-#     __tablename__ = 'quiz'
+#     _tablename_ = 'quiz'
 
 #     id = Column(Integer, primary_key=True, index=True)
 #     heading = Column(String)
@@ -105,4 +105,3 @@ class gameLeaderboard(Base):
     email = Column(String, primary_key=True)
     username = Column(String)
     score = Column(Integer)
-
