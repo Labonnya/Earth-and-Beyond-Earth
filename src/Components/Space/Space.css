@@ -382,6 +382,7 @@
 
 .modal-p {
   font-family: 'Wix Madefor Display', sans-serif;
+  color: #000;
 }
 
 .modal .modal-dialog {
@@ -393,7 +394,7 @@
   width: 100%;
 }
 
-.btn-space {
+.btn {
   -webkit-border-radius: 14;
   -moz-border-radius: 14;
   border-radius: 14px;
@@ -404,9 +405,10 @@
   padding: 10px 20px 10px 20px;
   border: solid #E4DFDA 4px;
   text-decoration: none;
-  width: 200px;
-  height: 64px;
-  margin-top: 30px;
+  width: 250px;
+  height: 80px;
+  margin-top: 20px;
+  margin-left: 105px;
 }
 
 .btn-space:hover {

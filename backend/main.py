@@ -64,6 +64,22 @@ c.execute('''
     )
 ''')
 
+c.execute('''
+    CREATE TABLE IF NOT EXISTS planets (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        title TEXT,
+        description TEXT,
+        named TEXT,
+        diameter TEXT,
+        orbit TEXT,
+        day TEXT,
+        moons INTEGER,
+        img1 TEXT,
+        img2 TEXT
+    )
+''')
+
 # Insert the data into the countries table
 for country in countries:
     # Generate a custom URL for the current country
@@ -132,6 +148,8 @@ for country in countries:
 
     # Insert the data into the countries table
     c.execute('INSERT INTO countries (name, geography, government, history, general_facts) VALUES (?, ?, ?, ?, ?)', (country, geo_info, govt_info, history_info, facts))
+    # Execute the INSERT statement
+
 # Commit the changes and close the connection
 conn.commit()
 conn.close()
@@ -167,3 +185,37 @@ class User(BaseModel):
     first_name: Union[str, None] = None
     last_name: Union[str, None] = None
     country: Union[str, None] = None
+
+# ... Existing code ...
+
+@app.get('/planets')
+async def get_all_planets():
+    # Connect to the database
+    conn = sqlite3.connect('blogs.db')
+    c = conn.cursor()
+
+    # Get all the planet data from the planets table
+    c.execute('SELECT * FROM planets')
+    rows = c.fetchall()
+
+    # Close the connection
+    conn.close()
+
+    # Convert the rows into a list of dictionaries
+    planets = []
+    for row in rows:
+        planet = {
+            'name': row[1],
+            'title': row[2],
+            'description': row[3],
+            'named': row[4],
+            'diameter': row[5],
+            'orbit': row[6],
+            'day': row[7],
+            'moons': row[8],
+            'img1': row[9],
+            'img2': row[10]
+        }
+        planets.append(planet)
+
+    return planets

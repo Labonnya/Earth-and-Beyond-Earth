@@ -13,6 +13,7 @@ import Chat from './Components/Chat/Chat';
 import ChatsPage from './Components/Chat/chatsPage';
 import Download from './Components/DownloadInfo/Download';
 import SpaceScene from './Components/Space/Space';
+import SpaceMenu from './Components/SpaceMenu/SpaceMenu';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
       <Route path="/space" element={<SpaceScene />} />
+      <Route path="/space-menu" element={<SpaceMenu />} />
     </Routes>
     </div>
   );

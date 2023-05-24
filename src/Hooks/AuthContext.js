@@ -16,6 +16,9 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     // Perform logout logic here
     setIsLoggedIn(false);
+    setToken('');
+    setUsername('');
+    setPassword('');
   };
 
   const tokenize = (givenToken) => {
