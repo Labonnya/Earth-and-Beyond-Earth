@@ -243,41 +243,4 @@ async def get_table_data():
 
     return table_data
 
-PROJECT_ID = "c4efceb3-e2bf-4139-8387-ae8cfdfba0a1"
-PRIVATE_KEY = "79a36864-1ca7-47e3-92be-d3f0b76e15e2"
-
-class User(BaseModel):
-    username: str
-    secret: str
-    email: Union[str, None] = None
-    first_name: Union[str, None] = None
-    last_name: Union[str, None] = None
-    country: Union[str, None] = None
-
-@app.post('/login/')
-async def root(user: User):
-    response = requests.get('https://api.chatengine.io/users/me/', 
-        headers={ 
-            "Project-ID": PROJECT_ID,
-            "User-Name": user.username,
-            "User-Secret": user.secret
-        }
-    )
-    return response.json()
-
-@app.post('/signup/')
-async def root(user: User):
-    response = requests.post('https://api.chatengine.io/users/', 
-        data={
-            "username": user.username,
-            "secret": user.secret,
-            "email": user.email,
-            "first_name": user.first_name,
-            "last_name": user.last_name,
-        },
-        headers={ "Private-Key": PRIVATE_KEY }
-    )
-    return response.json()
-
-#jheii
 

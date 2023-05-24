@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Hooks/AuthContext";
 
 const Container = styled.div`
   display: grid;
@@ -87,6 +88,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -101,8 +103,12 @@ function LoginForm() {
       .then((response) => response.json())
       .then((data) => {
         if (data.access_token) {
+          authContext.tokenize(data.access_token)
+          authContext.nameHandle(data.username);
+          authContext.passHandle(password);
           setMessage("Login successful!");
-          setIsLogin(true);
+          setIsLogin(true)
+          authContext.login();
           setTimeout(() => {
             navigate("/");
           }, 3000);
