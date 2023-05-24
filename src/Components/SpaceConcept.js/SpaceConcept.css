@@ -1,0 +1,56 @@
+.space::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../public/space1.jpg);
+    opacity: 0; /* Set initial opacity to 0 */
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    animation: fade-in 1s ease-in forwards, scrollBackground 20s linear infinite;
+  }
+ 
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.4; /* Adjust the target opacity value as desired */
+    }
+  }
+ 
+  @keyframes scrollBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+
+.spacey{
+    margin-top: 200px;
+    margin-left: 120px;
+}
+
+
+
+
+.txt{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.txt1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+.charOfSpace{
+    margin-top: 300px;
+    margin-bottom: 150px;
+}

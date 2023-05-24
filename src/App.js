@@ -23,6 +23,8 @@ import Climate from './Components/Climate/Climate';
 import Sports from './Components/Sports/Sports';
 import Travel from './Components/Travel/Travel';
 import Space from './Components/Space/Space';
+import SpaceConcept from './Components/SpaceConcept.js/SpaceConcept';
+import SpaceMenu from './Components/SpaceMenu/SpaceMenu';
 
 
 function App() {
@@ -54,6 +56,8 @@ function App() {
       <Route path="/climate" element={<Climate/>} />
       <Route path="/sports" element={<Sports/>} />
       <Route path="/union" element={<UnionMap/>} />
+      <Route path="/SpaceConcept" element={<SpaceConcept/>} />
+      <Route path="/spaceMenu" element={<SpaceMenu/>} />
     </Routes>
     </div>
   );
