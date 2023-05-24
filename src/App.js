@@ -12,6 +12,11 @@ import Register from './Components/Auth/Register';
 import Chat from './Components/Chat/Chat';
 import ChatsPage from './Components/Chat/chatsPage';
 import Download from './Components/DownloadInfo/Download';
+import Climate from './Components/Climate/Climate';
+import Sports from './Components/Sports/Sports';
+import Travel from './Components/Travel/Travel';
+import Space from './Components/Space/Space';
+
 
 function App() {
   return (
@@ -31,6 +36,10 @@ function App() {
       <Route path="/chat" element={<Chat />} />
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
+      <Route path="/climate" element={ <Climate />} />
+      <Route path="/sports" element={ <Sports />} />
+      <Route path="/travel" element={ <Travel />} />
+      <Route path="/space" element={ <Space />} />
     </Routes>
     </div>
   );
