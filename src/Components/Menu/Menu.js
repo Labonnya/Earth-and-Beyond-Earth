@@ -67,6 +67,15 @@ const Menu = () => {
           </Link>
         </div>
 
+        <div className="col-4">
+          <Link to='/chat' className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <GiEarthAsiaOceania size="80px" className="my-3" />
+              <h3>Chat</h3>
+            </Card>
+          </Link>
+        </div>
+
         </div>
 
     </>

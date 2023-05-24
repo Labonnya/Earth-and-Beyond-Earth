@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
 import './SportsMap.css';
 
-const SportsOptions = ({ setSelectedSport }) => {
+const SportsOptions = ({ setSelectedSports }) => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
   const [selectedSportInfo, setSelectedSportInfo] = useState({
     name: '',
     description: ''
   });
+  
 
   const handleClick = (sport) => {
-    setSelectedSport(sport);
+    setSelectedSports(sport);
     setIsOffcanvasOpen(true);
     // Set the selected sport's name and description
     setSelectedSportInfo(getSportInfo(sport));
   };
 
   const handleCloseOffcanvas = () => {
-    setSelectedSport(null);
+
     setIsOffcanvasOpen(false);
   };
 

@@ -49,6 +49,11 @@ function App() {
       <Route path="/chat" element={<Chat />} />
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
+      <Route path="/space" element={<Space/>} />
+      <Route path="/travel" element={<Travel/>} />
+      <Route path="/climate" element={<Climate/>} />
+      <Route path="/sports" element={<Sports/>} />
+      <Route path="/union" element={<UnionMap/>} />
     </Routes>
     </div>
   );
