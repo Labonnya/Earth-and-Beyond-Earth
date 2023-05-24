@@ -15,20 +15,21 @@ const Menu = () => {
   return (
     <>
       <div className="row">
-        <div className="col-6">
-          <div className="row">
-            <div className="col-7">
-              <img src="./countries.png" alt="" width="300px" className="world" height="300px" style={{ animation: 'rotation 9s infinite linear' }} />
-            </div>
-  
-            <div className="col-5">
-              <div className="country">Embark on a global journey with just a click and explore the world at your fingertips with our captivating clickable world map!</div>
-              <br />
-              <Link to="/map">
-                <button className="menuBtn">Start your journey!</button>
-              </Link>
-            </div>
-          </div>
+        <div className="col-4">
+        <Link to='/quizMode' className="link-decoration">
+          <Card body className="text-center mx-auto mt-4 menu-card">
+            <BsFillPatchQuestionFill size="80px" className="my-3" />
+            <h3>Quiz</h3>
+          </Card>
+        </Link>
+        </div>
+        <div className="col-4">
+        <Link to='/gamePage' className="link-decoration">
+        <Card body className="text-center mx-auto mt-4 menu-card">
+          <GiGamepad size="80px" className="my-3" />
+          <h3>Game</h3>
+        </Card>
+        </Link>
         </div>
         <div className="col-6">
 
@@ -56,6 +57,16 @@ const Menu = () => {
             </div>
           </div>
         </div>
+
+        <div className="col-4">
+          <Link className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <GiEarthAsiaOceania size="80px" className="my-3" />
+              <h3>Leaderboard</h3>
+            </Card>
+          </Link>
+        </div>
+
         </div>
 
     </>

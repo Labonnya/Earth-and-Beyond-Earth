@@ -21,6 +21,7 @@ const Navigation = () => {
         }}>
           <img src="logo.png" alt="logo" width="300px" id="logo-img"/>
           <button className="btn" onClick={handleClick}>Start Exploring!</button>
+          <Link to='/space'><button className="btn">Explore Space!</button></Link>
         </div>
         <div className="col-6">
           <Link to="/login"><button className="login-btn">Login/Signup?</button></Link>
