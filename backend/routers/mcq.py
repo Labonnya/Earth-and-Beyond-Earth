@@ -28,22 +28,18 @@ def createMCQ(request: schema.mcq, db: Session=Depends(database.get_db)):
     db.refresh(new_question)
     return new_question
 
-#Get question based on round and level
-@router.get('/{level}/{round}/getSpecificMCQ', response_model=schema.mcq)
-def showSpecificQuestions(level:int, round:int, db: Session=Depends(database.get_db), 
-         current_user: schema.mcq=Depends(oauth2.get_current_user)):
-    question = db.query(models.mcq).filter(models.mcq.round == round,
-                                           models.mcq.level == level).first()
+#Get question based on level
+@router.get('/{level}/getSpecificMCQ', response_model=List[schema.mcq])
+def showSpecificQuestions(level:int, db: Session=Depends(database.get_db)):
+    question = db.query(models.mcq).filter(models.mcq.level == level).all()
+    print(question)
     if not question:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"Question for round {round} and level {level} is not available")
-
-    return question
+                            detail=f"Question for level {level} is not available")
 
 #Show all question
 @router.get('/allMCQ', response_model=List[schema.showMcq])
-def allQuestions(db: Session = Depends(database.get_db), current_user:
-        schema.userInfo=Depends(oauth2.get_current_user)):
+def allQuestions(db: Session = Depends(database.get_db)):
     all_mcq = db.query(models.mcq).all()
     return all_mcq
 

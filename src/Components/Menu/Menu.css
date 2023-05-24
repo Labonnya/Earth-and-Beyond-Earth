@@ -21,3 +21,32 @@
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
 }
+
+.country{
+    color: #f0f0f0;
+    margin-top: 90px;
+    
+   
+}
+
+.world{
+    margin-left: 50px;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.ocean{
+    color: #f0f0f0;
+    margin-top: 80px;
+    margin-left: 50px;
+}  
+
+.oceanBtn{
+    margin-left: 50px;
+}

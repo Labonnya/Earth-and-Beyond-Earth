@@ -14,7 +14,7 @@ const QuizMode = () => {
     <LoggedNav />
     <div className="container">
       <div className="row my-5">
-        <div className="col-4">
+        {/* <div className="col-4">
           <Link to="/quizCategory" className="link-decoration">
             <Card body className="text-center mx-auto mt-4 menu-card">
               <MdHistoryEdu size="80px" className="my-3" />
@@ -37,12 +37,49 @@ const QuizMode = () => {
               <h3>Mutiplayer Quiz</h3>
             </Card>
           </Link>
+        </div> */}
+
+        <div className="col-4">
+          <Link to="/quizPage" className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <MdHistoryEdu size="80px" className="my-3" />
+              <h3>Play MCQ</h3>
+            </Card>
+          </Link>
         </div>
+
+        <div className="col-4">
+          <Link to="/addMCQ" className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <MdHistoryEdu size="80px" className="my-3" />
+              <h3>Add MCQ</h3>
+            </Card>
+          </Link>
+        </div>
+
+        <div className="col-4">
+          <Link to="/deleteMCQ" className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <MdHistoryEdu size="80px" className="my-3" />
+              <h3>Delete MCQ</h3>
+            </Card>
+          </Link>
+        </div>
+
+        <div className="col-4">
+          <Link to="/updateMCQ" className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <MdHistoryEdu size="80px" className="my-3" />
+              <h3>Update MCQ</h3>
+            </Card>
+          </Link>
+        </div>
+
       </div>
     </div>
 
     </>
-      );
+    );
 };
 
 export default QuizMode

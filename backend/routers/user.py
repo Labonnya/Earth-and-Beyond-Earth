@@ -9,7 +9,6 @@ from fastapi import APIRouter, Depends, HTTPException, Response, status, FastAPI
 from typing import List
 import models, schema, database, oauth2
 from passlib.context import CryptContext
-
 from JWTtoken import verify_token
 
 from fastapi.security import OAuth2PasswordBearer
@@ -44,11 +43,11 @@ PRIVATE_KEY = "649eff59-ccd4-4184-b879-07c7af1e84b4"
 @router.post('/createUser', response_model=schema.showUserInfo)
 def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db)):
     hashed_password = pwt_cxt.hash(request.password)
-    password_original = request.password;
+    password_original = request.password
     
     new_user = models.userInfo(fullName=request.fullName, userName=request.userName,
                            email=request.email, country=request.country,
-                           password=hashed_password)
+                           password=hashed_password, current_level=1)
 
     email_found = db.query(models.userInfo).filter(models.userInfo.email == request.email).first()
     #if email is already taken
@@ -72,7 +71,7 @@ def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db
         headers={ "Private-Key": PRIVATE_KEY }
     )
 
-    return new_user
+    return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
 
 #Get user by email
 @router.get('/{email}/userinformation', response_model=schema.showUserInfo)
@@ -143,4 +142,55 @@ def get_username_password(email: str,db:Session=Depends(database.get_db),token: 
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"User not found",
         )
+    
+#get current level
+@router.get('/{email}/current-level')
+def get_current_level(email: str,db:Session=Depends(database.get_db),token: str = Depends(oauth2_scheme)):
+    # Decode the token
+    try:
+        decoded_token = jwt.decode(token, "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7", algorithms=["HS256"])
+    except jwt.JWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid token",
+        )
+
+    # Access the 'sub' claim from the decoded token
+    user_sub = decoded_token.get('sub')
+    print(email)
+    # Example authorization logic: check if the email in the token matches the requested email
+    if user_sub != email:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Insufficient privileges",
+        )
+    # Example user level retrieval logic: query the user's current level from the database
+    user_info = db.query(models.userInfo).filter(models.userInfo.email == email).first()
+    if not user_info:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"User not found",
+        )
+
+    current_level = user_info.current_level
+
+    return {"current_level": current_level}
+
+
+# update the current_level
+@router.put('/updateLevel', response_model=schema.UserCurrentLevel)
+def updateLevel(email: str, db: Session = Depends(database.get_db)):
+    print(email)
+    user = db.query(models.userInfo).filter(models.userInfo.email == email).first()
+    if not user:
+        raise HTTPException(status_code=403, detail='User not found')
+
+    # Update the current_level
+    user.current_level += 1
+
+    db.commit()
+    db.refresh(user)
+    print(user.current_level)
+
+    return {"current_level": user.current_level}
     

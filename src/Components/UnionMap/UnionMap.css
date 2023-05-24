@@ -19,3 +19,28 @@
     text-decoration: none;
     color: white
   }
+
+  .modal-p {
+    font-family: 'Wix Madefor Display', sans-serif;
+    color: black;
+  }
+  
+  .modal .modal-dialog {
+    max-width: 800px; /* Adjust the value as needed */
+    width: 100%;
+  }
+  
+  .modal .modal-content {
+    width: 100%;
+  }
+
+  .offcanvas {
+    z-index: 1040; /* Adjust the z-index value as needed */
+  }
+  
+  .offcanvas-backdrop.show {
+    opacity: 0.5; /* Adjust the opacity value as needed */
+    z-index: 1039; /* Adjust the z-index value as needed */
+  }
+  
+
