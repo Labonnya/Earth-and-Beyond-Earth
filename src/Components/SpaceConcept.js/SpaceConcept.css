@@ -7,7 +7,7 @@
     height: 100%;
     background-image: url(../../../public/space1.jpg);
     opacity: 0; /* Set initial opacity to 0 */
-    z-index: -1;
+    z-index: -1000;
     background-position: center;
     background-size: cover;
     animation: fade-in 1s ease-in forwards, scrollBackground 20s linear infinite;
@@ -31,14 +31,14 @@
     }
   }
 
+ 
+
 
 .spacey{
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 120px;
+   
 }
-
-
-
 
 .txt{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -51,6 +51,45 @@
 }
 
 .charOfSpace{
-    margin-top: 300px;
-    margin-bottom: 150px;
+    margin-top: 80px;
+    background-image: url(../../../public/purple-planet-saturn-rings-nebula-galaxy-astronomy-stars-7000x3938-6416.jpg);
+    background-position: center;
+    background-size: cover;
+    animation:  scrollBackground 20s linear infinite;
+}
+
+.charOfSpace::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    animation: scrollBackground 30s linear infinite;
+  }
+
+.spaceChar1{
+    margin-left: 120px;
+}
+
+.space2{
+    margin-left: 350px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 100px rgba(255, 255, 255, 2.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(147, 222, 252, 2.8);
+    }
+}
+
+.header{
+    animation: glow 1s infinite alternate;
+    color: azure;
 }
