@@ -19,13 +19,10 @@ import AddMCQ from './Components/Quiz/AddMCQ'
 import DeleteMCQ from './Components/Quiz/DeleteMCQ'
 import UpdateMCQ from './Components/Quiz/UpdateMCQ'
 import GamePage from './Components/Game/GamePage';
-<<<<<<< HEAD
 import SpaceScene from './Components/Space/Space';
 import { AuthContext } from './Hooks/AuthContext';
 import ForgetPassCodeSend from './Components/Auth/ForgetPassCodeSend';
 import ResetPassword from './Components/Auth/ResetPassword';
-=======
-import SpaceScene from './Components/Space/Space'
 import Climate from './Components/Climate/Climate';
 import Sports from './Components/Sports/Sports';
 import Travel from './Components/Travel/Travel';
@@ -33,7 +30,6 @@ import Space from './Components/Space/Space';
 import SpaceConcept from './Components/SpaceConcept.js/SpaceConcept';
 import SpaceMenu from './Components/SpaceMenu/SpaceMenu';
 
->>>>>>> f42d7b992eac69ecbe5048c4f68c221086e83ee9
 
 function App() {
 
@@ -82,12 +78,9 @@ function App() {
       <Route path="/chat" element={<Chat />} />
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
-<<<<<<< HEAD
-      <Route path="/space" element={<SpaceScene />} />
       <Route path="/forgetPassCodeSend" element={<ForgetPassCodeSend />} />
       <Route path="/resetPassword" element={<ResetPassword />} />
       <Route path="*" element={<div><p className="text-light">Page Not Found!</p></div>} />
-=======
       <Route path="/space" element={<Space/>} />
       <Route path="/travel" element={<Travel/>} />
       <Route path="/climate" element={<Climate/>} />
@@ -95,7 +88,6 @@ function App() {
       <Route path="/union" element={<UnionMap/>} />
       <Route path="/SpaceConcept" element={<SpaceConcept/>} />
       <Route path="/spaceMenu" element={<SpaceMenu/>} />
->>>>>>> f42d7b992eac69ecbe5048c4f68c221086e83ee9
     </Routes>
     </div>
   );
