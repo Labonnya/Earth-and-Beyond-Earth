@@ -77,6 +77,14 @@ const QuizMode = () => {
             </Card>
           </Link>
         </div>
+        <div className="col-4">
+          <Link to="/leaderboard-quiz" className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <MdHistoryEdu size="80px" className="my-3" />
+              <h3>Leaaderboard</h3>
+            </Card>
+          </Link>
+        </div>
         {email === "a@a.com" &&
         <div className="col-4">
           <Link to="/addMCQ" className="link-decoration">

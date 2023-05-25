@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { TbArrowBackUp } from "react-icons/tb";
 import Game from "./Game";
+import GameMode from "./GameMode";
 
 const GamePage = () => {
     const [email, setEmail] = useState(null);
@@ -57,7 +58,7 @@ const GamePage = () => {
     if (!user) {
       return <LoginForm />;
     } else {
-      return <Game user={user} />;
+      return <GameMode  />;
     }
   };
   

@@ -31,6 +31,9 @@ import SpaceConcept from './Components/SpaceConcept.js/SpaceConcept';
 import SpaceMenu from './Components/SpaceMenu/SpaceMenu';
 import SpaceMIssion from './Components/SpaceMission/SpaceMIssion';
 import SpaceTravel from './Components/SpaceTravel/SpaceTravel';
+import LeaderboardQuiz from './Components/Leaderboard/LeaderboardQuiz';
+import GameMode from './Components/Game/GameMode';
+import LeaderboardGame from './Components/Leaderboard/LeaderboardGame';
 
 
 function App() {
@@ -92,16 +95,22 @@ function App() {
       <Route path="/spaceMenu" element={<SpaceMenu/>} />
       <Route path="/spaceMission" element={<SpaceMIssion/>} />
       <Route path="/spaceTravel" element={<SpaceTravel/>} />
+      <Route path="/leaderboard-quiz" element={<LeaderboardQuiz/>} />
+      <Route path="/gameMode" element={<GameMode/>} />
+      <Route path="/gamepage" element={<GamePage/>} />
+      <Route path="/leaderboard-game" element={<LeaderboardGame/>} />
+
     </Routes>
     </div>
   );
   
   //Role Management
   function AddingMCQ({children}){
+    console.log(authContext.email);
     if(email=== "a@a.com")
     {
       return <>{children}</>;
-    }
+    } 
     else
     {
       return <div className="text-light">You do not have access to this page</div>;

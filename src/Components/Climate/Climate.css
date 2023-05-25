@@ -1,0 +1,11 @@
+body {
+    overflow-y: hidden;
+  }
+
+  .red{
+    color: 'red';
+  }
+
+  .green{
+    color: 'green';
+  }

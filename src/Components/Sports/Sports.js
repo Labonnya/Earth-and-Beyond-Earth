@@ -54,22 +54,72 @@ const Sports = () => {
 
   const fillColorMapCricket = {
     default: "grey",
-    Bangladesh: 'red',
+    Australia: "#dbe4eb",
+    'New Zealand': "#dbe4eb",
+    Pakistan: "#dbe4eb",
+    India: "#dbe4eb",
+    'Sri lanka': "#dbe4eb",
+    Bangladesh: "#dbe4eb",
+    'West indies': "#dbe4eb",
+    Zimbabwe: "#dbe4eb",
+    Ireland: "#dbe4eb",
+    Netherlands: "#dbe4eb",
+    Nepal: "#dbe4eb",
+    Oman: "#dbe4eb",
+    Afghanistan: "#dbe4eb",
+    'South africa': "#dbe4eb",
+    Namibia: "#dbe4eb",
+    England: "#dbe4eb",
 
   }
   const fillColorMapFootball = {
     default: "grey",
-    India: 'red',
+    Argentina:'#d4af37',
+    Brazil: '#d4af37',
+    Germany: '#d4af37',
+    Spain: '#d4af37',
+    Portugal: '#d4af37',
+    Italy: '#d4af37',
+    England: '#d4af37',
+    Netherlands: '#d4af37',
+    France: '#d4af37',
+    Turkey: '#d4af37',
+    Uruguay: '#d4af37',
+    Colombia: '#d4af37',
+    Belgium: '#d4af37',
+    Ghana: '#d4af37',
+    'South korea': '#d4af37',
+    Japan: '#d4af37',
+    Switzerland: '#d4af37',
+    Sweden: '#d4af37',
+    'United States of America': '#d4af37',
+    Morocco: '#d4af37',
 
   }
   const fillColorMapBasketball = {
     default: "grey",
-    Canada: 'red',
+    'United States of America': '#cd7f32',
+    Canada: '#cd7f32',
+    Argentina: '#cd7f32',
+    Russia: '#cd7f32',
+    Spain: '#cd7f32',
+    Australia : '#cd7f32',
+    China: '#cd7f32',
+    Brazil: '#cd7f32',
+    Philippines : '#cd7f32',
+    Serbia: '#cd7f32',
 
   }
   const fillColorMapHockey = {
     default: "grey",
-    Japan: 'red',
+    Slovakia: '#f1f7b5',
+    Switzerland:'#f1f7b5',
+    'Czech Republic': '#f1f7b5',
+    Russia: '#f1f7b5',
+    'United States of America': '#f1f7b5',
+    Finland: '#f1f7b5',
+    Sweden: '#f1f7b5',
+    Canada: '#f1f7b5',
 
   }
 
