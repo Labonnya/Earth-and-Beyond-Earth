@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Modal, Button } from 'react-bootstrap';
 import Accordion from "react-bootstrap/Accordion";
+import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
 
 const CountryInfo = (props) => {
@@ -7,6 +9,23 @@ const CountryInfo = (props) => {
   const [government, setGovernment] = useState("");
   const [history, setHistory] = useState("");
   const [facts, setFacts] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchTableData();
+  }, [props.country]);
+
+  const fetchTableData = async () => {
+    var formattedCountry = props.country;
+    if(formattedCountry==="united-states-of-america") {
+      formattedCountry = "united-states";
+    }
+    const response = await fetch(`http://localhost:8000/table-data/${formattedCountry}`);
+    const data = await response.json();
+    setData(data);
+    console.log(data);
+  };
 
   useEffect(() => {
     var formattedCountry = props.country.replace(/\s+/g, "-").toLowerCase();
@@ -22,87 +41,59 @@ const CountryInfo = (props) => {
         setGovernment(response.data.government);
         setHistory(response.data.history);
         setFacts(response.data.general_facts);
+        setShowModal(true)
       })
       .catch((error) => {
         setHistory("Country not found");
       });
-  }, [props.country]);
+  }, [props.country, props.stateToShow]);
+
+      const handleCloseModal = () => {
+        setShowModal(false);
+        setData([]);
+      };
 
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>{props.country}</Accordion.Header>
-        <Accordion.Body>
-          <Accordion>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Geography</Accordion.Header>
-              <Accordion.Body
-                style={{
-                  textAlign: "left",
-                  background: "rgb(4,51,75)",
-                  background:
-                    "radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%)",
-                  color: "white",
-                  fontWeight: "500",
-                  fontSize: "13px",
-                }}
-              >
-                {geography}
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-              <Accordion.Header>Government</Accordion.Header>
-              <Accordion.Body
-                style={{
-                  textAlign: "left",
-                  background: "rgb(4,51,75)",
-                  background:
-                    "radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%)",
-                  color: "white",
-                  fontWeight: "500",
-                  fontSize: "13px",
-                }}
-              >
-                {government}
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="3">
-              <Accordion.Header>History</Accordion.Header>
-              <Accordion.Body
-                style={{
-                  textAlign: "left",
-                  background: "rgb(4,51,75)",
-                  background:
-                    "radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%)",
-                  color: "white",
-                  fontWeight: "500",
-                  fontSize: "13px",
-                }}
-              >
-                {history}
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="4">
-              <Accordion.Header>General Facts</Accordion.Header>
-              <Accordion.Body
-                style={{
-                  textAlign: "left",
-                  background: "rgb(4,51,75)",
-                  background:
-                    "radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%)",
-                  color: "white",
-                  fontWeight: "500",
-                  fontSize: "13px",
-                }}
-              >
-                {facts}
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
+    <>
+    <Modal show={showModal} onHide={handleCloseModal} className="modal">
+        <Modal.Header closeButton>
+          <Modal.Title>{props.country}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="row">
+          <ReactCountryFlag
+          countryCode={props.code}
+          svg
+          style={{
+            width: "20em",
+            height: "20em",
+          }}
+          title={props.code}
+          className="flag"
+        />{" "}
+          </div>
+          <hr />
+          <div className="row">
+              <h5>{props.country} Facts</h5>
+              <hr />
+              <h6>Geography:</h6>
+              <p className="modal-p">{geography}</p>
+              <h6>Government:</h6>
+              <p className="modal-p">{government}</p>
+              <h6>History:</h6>
+              <p className="modal-p">{history}</p>
+              <h6>General Facts:</h6>
+              <p className="modal-p">{data && data.capitals}</p>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
-export default CountryInfo;
+export default CountryInfo;  

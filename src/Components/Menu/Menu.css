@@ -1,52 +1,21 @@
-.menu-card {
-    width: 300px;
-    height: 200px;
-    background: rgb(4,51,75);
-    background: radial-gradient(circle, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 100%); 
-    color: white;
-    border: 1px ridge #F7C7DB;
-}
-
 .link-decoration {
     text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 30px;
+    text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
+    transition: color 0.3s;
 }
 
-.menu-card:hover {
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-    background: rgb(228,223,218);
-    background: radial-gradient(circle, rgba(228,223,218,1) 0%, rgba(4,51,75,1) 100%);    
-    color: black;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
+.link-decoration:hover {
+    text-decoration: none;
+    transform: scale(1.01);
+    transition: all ease 0.5s;
+    opacity: 0.6;
 }
 
-.country{
-    color: #f0f0f0;
-    margin-top: 90px;
-    
-   
-}
-
-.world{
-    margin-left: 50px;
-}
-
-@keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-.ocean{
-    color: #f0f0f0;
-    margin-top: 80px;
-    margin-left: 50px;
-}  
-
-.oceanBtn{
-    margin-left: 50px;
+.real-nav-menu {
+    margin-left: 65px;
 }

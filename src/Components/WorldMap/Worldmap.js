@@ -755,7 +755,7 @@ const Worldmap = () => {
             </div>
             <div className="col-2">
               <MapLegend />
-              {isOpen && <CountryInfo country={stateToShow} />}
+              {isOpen && <CountryInfo country={stateToShow} code={code} />}
             </div>
           </div>
         </div>

@@ -21,39 +21,49 @@ const Navigation = () => {
   };
 
   return (
-    <div className="home">
-      <div className="row">
-        <div className="col-6 beauty" style={{
-          background: "rgb(4,51,75)",
-          // eslint-disable-next-line no-dupe-keys
-          background: "linear-gradient(90deg, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 30%)"
-        }}>
-          <img src="logo.png" alt="logo" width="300px" id="logo-img"/>
+    <>
+      <div className="row home">
+        <div className="row independent">
+          {authContext.token ? (
+            <div>
+              <button className="login-btn" onClick={handleLogout}>Logout</button>
+              <button className="login-btn">{authContext.username}</button>
+            </div>
+            ) : (
+              <Link to="/login">
+                <button className="login-btn">Login/Signup</button>
+              </Link>
+            )}
+        </div>
+      <div className="row main-bg">
+        <div className="col-6 beauty">
+          <br></br><br></br><br></br><br></br><br></br>
+          <img src="./starss.png" width="600px" style={{
+          animation: 'glow 1s ease-in-out infinite alternate, jump 5s ease-in-out infinite alternate',
+        }} alt="menu"/>
+          {/* <img src="logo.png" alt="logo" width="300px" id="logo-img"/>
           <button className="btn" onClick={handleClick}>Start Exploring!</button>
-          <Link to='/space-menu'><button className="btn">Explore Space!</button></Link>
+          <Link to='/space-menu'><button className="btn">Explore Space!</button></Link> */}
         </div>
-        <div className="col-6">
-        {authContext.token ? (
-          <div>
-            <button className="login-btn" onClick={handleLogout}>Logout</button>
-            <button className="login-btn">{authContext.username}</button>
+        <div className='col-4 real-nav'>
+          <div style={{
+            paddingTop: "140px",
+          }}>
+            <button className='btn-space-menu' style={{ 
+              fontSize: "30px", 
+              textShadow: '0 2px 20px rgba(255, 255, 255, 0.8)', 
+              transition: 'color 0.3s' }}>
+              Earth, and Beyond Earth
+            </button>
+            <p>Welcome to our extraordinary online portal, a captivating destination where the wonders of space, the beauty of Earth, and the pursuit of knowledge converge. Immerse yourself in a realm where the vastness of the cosmos meets the intricate details of our planet. Explore the mysteries of the universe, unravel the secrets of celestial bodies, and deepen your understanding of the cosmos.</p>
           </div>
-          ) : (
-            <Link to="/login">
-              <button className="login-btn">Login/Signup</button>
-            </Link>
-          )}
-          <video src="global-48101.mp4" autoPlay loop muted />
         </div>
-      </div>
-      <div id="menu" style={{
-          background: "rgb(4,51,75)",
-          // eslint-disable-next-line no-dupe-keys
-          background: "linear-gradient(90deg, rgba(4,51,75,1) 0%, rgba(0,0,0,1) 15%)"
-      }}>
-        <Menu/>
+        <div className="col-2">
+          <Menu/>
+        </div>
       </div>
     </div>
+    </>
   );
 };
 
