@@ -1,16 +1,23 @@
-@keyframes glow {
+@keyframes glow1 {
     0% {
         text-shadow: 0 0 100px rgba(255, 255, 255, 2.8);
     }
     100% {
-        text-shadow: 0 0 20px rgba(147, 222, 252, 2.8);
+        text-shadow: 0 0 50px rgba(147, 222, 252, 2.8);
     }
 }
 
 .space-menu-item {
     background-color: #010005;
-    background-position: center;
     font-family: 'Nunito Sans', sans-serif;
+}
+
+.space-bg {
+  background-image: url(../../../public/space-bg.png);
+  min-height: 100vh;
+  background-position: 50%;
+  background-size: cover;
+  width: 1000px;
 }
 
 .btn-space-menu {
@@ -29,7 +36,7 @@
 }
 
 .btn-space-menu:hover, h4:hover {
-    animation: glow 1s infinite alternate;
+    animation: glow1 1s infinite alternate;
 }
 .concept {
     background: rgb(255,131,0);
