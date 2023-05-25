@@ -6,8 +6,8 @@ const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const login = () => {
     // Perform login logic here
@@ -17,6 +17,9 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     // Perform logout logic here
     setIsLoggedIn(false);
+    setToken('');
+    setUsername('');
+    setPassword('');
   };
 
   const tokenize = (givenToken) => {
@@ -25,16 +28,16 @@ const AuthProvider = ({ children }) => {
     setToken(givenToken);
   };
 
+  const emailHandle = (givenEmail) => {
+    setEmail(givenEmail);
+  }
+
   const nameHandle = (givenName) => {
     setUsername(givenName)
   }
 
   const passHandle = (givenPass) => {
     setPassword(givenPass)
-  }
-
-  const emailHandle = (givenEmail) => {
-    setEmail(givenEmail)
   }
 
   return (

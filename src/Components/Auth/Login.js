@@ -105,8 +105,8 @@ function LoginForm() {
         if (data.access_token) {
           authContext.tokenize(data.access_token)
           authContext.nameHandle(data.username);
-          authContext.passHandle(password);
           authContext.emailHandle(email);
+          authContext.passHandle(password);
           setMessage("Login successful!");
           setIsLogin(true)
           authContext.login();

@@ -13,35 +13,7 @@ import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
-    <div className="container pb-5">
-      <br></br>
-      <div className="row my-5">
-        <div className="col-4">
-          <Link to="/map" className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <GiBlackFlag size="80px" className="my-3" />
-              <h3>Countries</h3>
-            </Card>
-          </Link>
-        </div>
-        <div className="col-4">
-          <Link className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <GiEarthAsiaOceania size="80px" className="my-3" />
-              <h3>Oceans</h3>
-            </Card>
-          </Link>
-        </div>
-        <div className="col-4">
-          <Link to='/union' className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <GiUnionJack size="80px" className="my-3" />
-              <h3>Unions</h3>
-            </Card>
-          </Link>
-        </div>
-      </div>
-      
+    <>
       <div className="row">
         <div className="col-4">
         <Link to='/quizPage' className="link-decoration">
@@ -59,40 +31,31 @@ const Menu = () => {
         </Card>
         </Link>
         </div>
-        <div className="col-4">
-        <Link to='chat' className="link-decoration">
-        <Card body className="text-center mx-auto mt-4 menu-card">
-          <RiChatSmile3Fill size="80px" className="my-3" />
-          <h3>Chat</h3>
-        </Card>
-        </Link>
+        <div className="col-6">
+
         </div>
         </div>
 
         <div className="row">
-        <div className="col-4">
-        <Link to='chat' className="link-decoration">
-        <Card body className="text-center mx-auto mt-4 menu-card">
-          <RiChatSmile3Fill size="80px" className="my-3" />
-          <h3>Sports</h3>
-        </Card>
-        </Link>
-        </div>
-        <div className="col-4">
-        <Link to='chat' className="link-decoration">
-        <Card body className="text-center mx-auto mt-4 menu-card">
-          <RiChatSmile3Fill size="80px" className="my-3" />
-          <h3>Travel</h3>
-        </Card>
-        </Link>
-        </div>
-        <div className="col-4">
-        <Link to='download' className="link-decoration">
-        <Card body className="text-center mx-auto mt-4 menu-card">
-          <RiChatSmile3Fill size="80px" className="my-3" />
-          <h3>Download</h3>
-        </Card>
-        </Link>
+          <div className="col-6">
+            
+          </div>
+        <div className="col-6">
+          <div className="row">
+           
+  
+            <div className="col-6">
+              <div className="ocean">Dive into the mysteries of the deep blue and uncover the secrets that lie within the enchanting realms of our magnificent oceans!</div>
+              <br />
+              <Link to="/map">
+                <button className="oceanBtn">Dive into Ocean!</button>
+              </Link>
+            </div>
+
+            <div className="col-6 oceanPic">
+              <img src="./ocean.png" alt="" width="300px" height="300px" style={{ animation: 'rotation 9s infinite linear' }} />
+            </div>
+          </div>
         </div>
 
         <div className="col-4">
@@ -104,11 +67,20 @@ const Menu = () => {
           </Link>
         </div>
 
+        <div className="col-4">
+          <Link to='/chat' className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <GiEarthAsiaOceania size="80px" className="my-3" />
+              <h3>Chat</h3>
+            </Card>
+          </Link>
         </div>
-       
-      </div>
-   
+
+        </div>
+
+    </>
   );
+  
 };
 
 export default Menu;
