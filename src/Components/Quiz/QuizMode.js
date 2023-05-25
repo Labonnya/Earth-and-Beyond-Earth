@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import "./Quiz.css";
 import {
@@ -7,8 +7,38 @@ import {
 import {MdHistoryEdu, MdSportsVolleyball } from "react-icons/md"
 import { Link } from "react-router-dom";
 import LoggedNav from "../Navbar/LoggedNav";
+import LoginForm from '../Auth/Login';
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../Hooks/AuthContext';
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
+import UserLevelSpecificMCQ from "./UserLevelSpecificMCQ";
 
 const QuizMode = () => {
+
+  const [token, setToken] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const authContext = useContext(AuthContext);
+
+  // console.log(props.user.email)
+  // console.log(props.user.secret)
+
+  useEffect(() => {
+    if (authContext.token) {
+      console.log("chole?");
+      setToken(authContext.token);
+      setEmail(authContext.email);
+      setPassword(authContext.password);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    authContext.logout();
+  };
+
   return (
     <>
     <LoggedNav />
@@ -40,14 +70,14 @@ const QuizMode = () => {
         </div> */}
 
         <div className="col-4">
-          <Link to="/quizPage" className="link-decoration">
+          <Link to="/userLevelSpecificMCQ" className="link-decoration">
             <Card body className="text-center mx-auto mt-4 menu-card">
               <MdHistoryEdu size="80px" className="my-3" />
               <h3>Play MCQ</h3>
             </Card>
           </Link>
         </div>
-
+        {email === "a@a.com" &&
         <div className="col-4">
           <Link to="/addMCQ" className="link-decoration">
             <Card body className="text-center mx-auto mt-4 menu-card">
@@ -55,8 +85,9 @@ const QuizMode = () => {
               <h3>Add MCQ</h3>
             </Card>
           </Link>
-        </div>
+        </div>}
 
+        {email === "a@a.com" &&
         <div className="col-4">
           <Link to="/deleteMCQ" className="link-decoration">
             <Card body className="text-center mx-auto mt-4 menu-card">
@@ -64,8 +95,9 @@ const QuizMode = () => {
               <h3>Delete MCQ</h3>
             </Card>
           </Link>
-        </div>
+        </div>}
 
+        {email === "a@a.com" &&
         <div className="col-4">
           <Link to="/updateMCQ" className="link-decoration">
             <Card body className="text-center mx-auto mt-4 menu-card">
@@ -73,13 +105,14 @@ const QuizMode = () => {
               <h3>Update MCQ</h3>
             </Card>
           </Link>
-        </div>
+        </div>}
 
       </div>
     </div>
 
     </>
     );
+
 };
 
 export default QuizMode

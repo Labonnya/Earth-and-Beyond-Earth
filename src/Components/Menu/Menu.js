@@ -1,22 +1,41 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import "./Menu.css";
-import {
-  GiBlackFlag,
-  GiEarthAsiaOceania,
-  GiUnionJack,
-  GiGamepad,
-} from "react-icons/gi";
-import { BsFillPatchQuestionFill } from "react-icons/bs";
-import { RiChatSmile3Fill } from "react-icons/ri";
+import { Card } from 'react-bootstrap';
+import { BsFillPatchQuestionFill } from 'react-icons/bs';
+import { GiGamepad } from 'react-icons/gi';
+import { GiEarthAsiaOceania } from 'react-icons/gi';
+
 import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <>
+      <div className="row real-nav-menu">
+        
+        <div style={{
+          paddingTop: "120px",
+        }}>
+          <Link to='/map' className="link-decoration">
+            <p>Countries</p>
+          </Link>
+          <Link to='/ocean' className="link-decoration">
+            <p>Ocean</p>
+          </Link>
+          <Link to='/union' className="link-decoration">
+            <p>Union</p>
+          </Link>
+          <Link to='/travel' className="link-decoration">
+            <p>Travel</p>
+          </Link>
+          <Link to='/climate' className="link-decoration">
+            <p>Climate</p>
+          </Link>
+          <Link to='/sports' className="link-decoration">
+            <p>Sports</p>
+          </Link>
       <div className="row">
         <div className="col-4">
-        <Link to='/quizMode' className="link-decoration">
+        <Link to='/quizPage' className="link-decoration">
           <Card body className="text-center mx-auto mt-4 menu-card">
             <BsFillPatchQuestionFill size="80px" className="my-3" />
             <h3>Quiz</h3>
@@ -64,21 +83,25 @@ const Menu = () => {
               <GiEarthAsiaOceania size="80px" className="my-3" />
               <h3>Leaderboard</h3>
             </Card>
-          </Link>
-        </div>
 
-        <div className="col-4">
+          </Link>
           <Link to='/chat' className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <GiEarthAsiaOceania size="80px" className="my-3" />
-              <h3>Chat</h3>
-            </Card>
+            <p>Chat</p>
+          </Link>
+          <Link to='/quizMode' className="link-decoration">
+            <p>Quiz</p>
+          </Link>
+          <Link to='/gamePage' className="link-decoration">
+            <p>Game</p>
+          </Link>
+          <Link to='/download' className="link-decoration">
+            <p>Download</p>
           </Link>
         </div>
-
-        </div>
-
-    </>
+      </div>
+      </div>
+      </div>
+      </>
   );
   
 };

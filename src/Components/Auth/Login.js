@@ -4,6 +4,9 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Hooks/AuthContext";
+import Navbar from 'react-bootstrap/Navbar';
+import { TbArrowBackUp } from 'react-icons/tb';
+import Menu from "../Menu/Menu";
 
 const Container = styled.div`
   display: grid;
@@ -133,9 +136,9 @@ function LoginForm() {
   };
 
   return (
-    <Container>
-      <div className="imageee"></div>
-      <div className="bg">
+    <>
+    <Container className="bg">
+      <div className="login-no-overlay">
         <FormContainer>
           <Form onSubmit={handleSubmit}>
             <Label>
@@ -171,8 +174,16 @@ function LoginForm() {
             <span className="regtxt">Register Now!</span>
           </Link>
         </div>
+
+        <div className="forget-pass">
+          <Link to="/forgetPassCodeSend">
+            <span className="regtxt">Forgot Your Password?</span>
+          </Link>
+        </div>
+
       </div>
     </Container>
+    </>
   );
 }
 

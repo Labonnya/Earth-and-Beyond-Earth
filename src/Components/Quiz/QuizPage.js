@@ -9,7 +9,7 @@ import { AuthContext } from '../../Hooks/AuthContext';
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { TbArrowBackUp } from "react-icons/tb";
-import UserLevelSpecificMCQ from "./UserLevelSpecificMCQ";
+import QuizMode from "./QuizMode";
 
 const QuizPage = () => {
     const [email, setEmail] = useState(null);
@@ -57,7 +57,7 @@ const QuizPage = () => {
     if (!user) {
       return <LoginForm />;
     } else {
-      return <UserLevelSpecificMCQ user={user} />;
+      return <QuizMode user={user} />;
     }
   };
   

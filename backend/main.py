@@ -259,6 +259,26 @@ async def get_table_data():
 
     return table_data
 
+@app.get("/table-data/{name}")
+async def get_table_data(name: str):
+    conn = sqlite3.connect('blogs.db')
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+
+    c.execute('SELECT capitals, currency, language, religion FROM download WHERE name = ?', (name,))
+    row = c.fetchone()
+
+    # Close the connection
+    conn.close()
+
+    # If the country is not found, return a 404 response
+    if not row:
+        return {'error': 'Data not found'}
+
+    # Otherwise, return the name and history data
+    capitals, currency, language, religion = row
+    return {'name': name, 'capitals': capitals, 'currency': currency, 'language': language, 'religion': religion}
+
 
 @app.get('/planets')
 async def get_all_planets():

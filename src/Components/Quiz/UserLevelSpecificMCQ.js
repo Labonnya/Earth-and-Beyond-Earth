@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { useTimer } from 'react-timer-hook';
 import "./UserLevelSpecificMCQ.css";
 import LoggedNav from "../Navbar/LoggedNav";
 // import "./Quiz.css";
@@ -26,10 +27,12 @@ function UserLevelSpecificMCQ({ props }) {
   const [user, setUser] = useState(null);
   const [nextLevel, setNextLevel] = useState(null);
   const [levelUpdated, setLevelUpdated] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60); // 3 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(20); // 3 minutes in seconds
   const [timerRunning, setTimerRunning] = useState(true);
+  const [timer, setTimer] = useState('00:00:00');
 
   const authContext = useContext(AuthContext);
+  const intervalRef = useRef(null);
 
   // console.log(props.user.email)
   // console.log(props.user.secret)
@@ -135,6 +138,11 @@ function UserLevelSpecificMCQ({ props }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(timer==='00:00:00')
+    {
+      alert("Your time is up");
+    }
+    else{
     const updatedIsAnswerCorrect = mcqQuestions.map((question, index) => {
       const isCorrect = selectedOptions[index] === correctAnswers[index];
       return { userAnswer: selectedOptions[index], correctAnswer: correctAnswers[index], isCorrect };
@@ -204,25 +212,74 @@ function UserLevelSpecificMCQ({ props }) {
             .catch((error) => console.error(error));
         })
         .catch((error) => console.error(error));
-    }
+    }}
   };
   
 //timer
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime === 0) {
-          clearInterval(timer);
-          setShowResult(true);
-          setTimerRunning(false); // Stop the timer
-          return prevTime;
-        } else {
-          return prevTime - 1;
-        }
-      });
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setTimeLeft((prevTime) => {
+  //       if (prevTime === 0) {
+  //         clearInterval(timer);
+  //         setShowResult(true);
+  //         setTimerRunning(false); // Stop the timer
+  //         return prevTime;
+  //       } else {
+  //         return prevTime - 1;
+  //       }
+  //     });
+  //   }, 1000);
 
-    return () => clearInterval(timer);
+  //   return () => clearInterval(timer);
+  // }, []);
+
+  //timer
+  function getTimeRemaining(endtime){
+    const total = Date.parse(endtime) - Date.parse(new Date());
+    const seconds = Math.floor( (total/1000) % 60);
+    const minutes = Math.floor( (total/1000/60) % 60);
+    const hours = Math.floor( (total/1000*60*60) % 24);
+    const days = Math.floor( (total/(1000*60*60*24)));
+
+    return{
+      total, days, hours, minutes, seconds
+    };
+
+  }
+
+  function startTimer(deadline){
+    let { total, days, hours, minutes, seconds } = getTimeRemaining(deadline);
+    if(total>=0)
+    {
+      setTimer(
+        (hours > 9 ? hours: '0' + hours) + ':' +
+        (minutes > 9 ? minutes: '0' + minutes) + ':' +
+        (seconds > 9 ? seconds: '0' + seconds)
+      )
+    }
+    else{
+      clearInterval(intervalRef.current);
+    }
+  }
+
+  function clearTimer(endtime){
+    setTimer('00:01:00');
+    if(intervalRef.current) clearInterval(intervalRef.current);
+    const id = setInterval(() => {
+      startTimer(endtime);
+    }, 1000)
+    intervalRef.current = id;
+  }
+
+  function getDeadlineTime(){
+    let deadline = new Date();
+    deadline.setSeconds(deadline.getSeconds()+60);
+    return deadline;
+  }
+
+  useEffect(()=>{
+    clearTimer(getDeadlineTime());
+    return () => {if(intervalRef.current) clearInterval(intervalRef.current)}
   }, []);
 
   // level update
@@ -255,9 +312,15 @@ function UserLevelSpecificMCQ({ props }) {
       {/* {currentLevel ? ( */}
         <div className="container" style={{ height: "100vh", width: "100vw" }} >
           <h1 className="text-light">MCQ Questions</h1>
-          {timerRunning ? (
-            <div className="timer text-light">Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60} s</div>
-            ) : (
+          { intervalRef.current  ? (
+            !showResult ? (
+            <div className="timer text-light">Time Left: {timer} s</div>
+            )
+            : (
+              <div></div>
+            )
+          )
+            : (
             <div className="timer text-light">Your Time is up</div>
           )}
           <ol className="text-light">
@@ -313,7 +376,7 @@ function UserLevelSpecificMCQ({ props }) {
               </li>
             ))}
           </ol>
-          {showResult ? (
+          {(showResult)? (
             <>
               <h2 className="text-light">Result:</h2>
               <ol className="text-light">
