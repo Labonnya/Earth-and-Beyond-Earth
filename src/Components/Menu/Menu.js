@@ -1,12 +1,15 @@
 import React from "react";
 import "./Menu.css";
+import { Card } from 'react-bootstrap';
+import { BsFillPatchQuestionFill } from 'react-icons/bs';
+import { GiGamepad } from 'react-icons/gi';
+import { GiEarthAsiaOceania } from 'react-icons/gi';
 
 import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <>
-<<<<<<< HEAD
       <div className="row real-nav-menu">
         
         <div style={{
@@ -29,7 +32,7 @@ const Menu = () => {
           </Link>
           <Link to='/sports' className="link-decoration">
             <p>Sports</p>
-=======
+          </Link>
       <div className="row">
         <div className="col-4">
         <Link to='/quizPage' className="link-decoration">
@@ -80,7 +83,7 @@ const Menu = () => {
               <GiEarthAsiaOceania size="80px" className="my-3" />
               <h3>Leaderboard</h3>
             </Card>
->>>>>>> c2a39e0e6ca74d97df562a0172d31aa2827b251c
+
           </Link>
           <Link to='/chat' className="link-decoration">
             <p>Chat</p>
@@ -96,7 +99,9 @@ const Menu = () => {
           </Link>
         </div>
       </div>
-    </>
+      </div>
+      </div>
+      </>
   );
   
 };
