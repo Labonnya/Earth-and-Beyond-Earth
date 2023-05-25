@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 import Worldmap from './Components/WorldMap/Worldmap';
 import Navigation from './Components/Navbar/Navbar';
 import UnionMap from './Components/UnionMap/UnionMap';
@@ -18,9 +19,35 @@ import AddMCQ from './Components/Quiz/AddMCQ'
 import DeleteMCQ from './Components/Quiz/DeleteMCQ'
 import UpdateMCQ from './Components/Quiz/UpdateMCQ'
 import GamePage from './Components/Game/GamePage';
-import SpaceScene from './Components/Space/Space'
+import SpaceScene from './Components/Space/Space';
+import { AuthContext } from './Hooks/AuthContext';
+import ForgetPassCodeSend from './Components/Auth/ForgetPassCodeSend';
+import ResetPassword from './Components/Auth/ResetPassword';
 
 function App() {
+
+  const [token, setToken] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const authContext = useContext(AuthContext);
+
+  // console.log(props.user.email)
+  // console.log(props.user.secret)
+
+  useEffect(() => {
+    if (authContext.token) {
+      console.log(authContext.email);
+      setToken(authContext.token);
+      setEmail(authContext.email);
+      setPassword(authContext.password);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    authContext.logout();
+  };
+
   return (
     <div className="App">
     <Routes>
@@ -34,9 +61,9 @@ function App() {
       <Route path="/quizCategory" element={<QuizCategory />} />
       <Route path="/quizPage" element={<QuizPage />} />
       <Route path="/userLevelSpecificMCQ" element={<UserLevelSpecificMCQ />} />
-      <Route path="/addMCQ" element={<AddMCQ />} />
-      <Route path="/deleteMCQ" element={<DeleteMCQ />} />
-      <Route path="/updateMCQ" element={<UpdateMCQ />} />
+      <Route path="/addMCQ" element={ <AddingMCQ> <AddMCQ /> </AddingMCQ> } />
+      <Route path="/deleteMCQ" element={<DeletingMCQ> <DeleteMCQ /> </DeletingMCQ>} />
+      <Route path="/updateMCQ" element={ <UpdatingMCQ> <UpdateMCQ /> </UpdatingMCQ>} />
       <Route path="/gamePage" element={<GamePage />} />
       <Route path="/game" element={<Game />} />
       <Route path="/login" element={<LoginForm />} />
@@ -45,9 +72,47 @@ function App() {
       <Route path="/chatsPage" element={<ChatsPage />} />
       <Route path="/download" element={<Download />} />
       <Route path="/space" element={<SpaceScene />} />
+      <Route path="/forgetPassCodeSend" element={<ForgetPassCodeSend />} />
+      <Route path="/resetPassword" element={<ResetPassword />} />
+      <Route path="*" element={<div><p className="text-light">Page Not Found!</p></div>} />
     </Routes>
     </div>
   );
+  
+  //Role Management
+  function AddingMCQ({children}){
+    if(email=== "a@a.com")
+    {
+      return <>{children}</>;
+    }
+    else
+    {
+      return <div className="text-light">You do not have access to this page</div>;
+    }
+  }
+
+  function DeletingMCQ({children}){
+    if(email=== "a@a.com")
+    {
+      return <>{children}</>;
+    }
+    else
+    {
+      return <div className="text-light">You do not have access to this page</div>;
+    }
+  }
+
+  function UpdatingMCQ({children}){
+    if(email=== "a@a.com")
+    {
+      return <>{children}</>;
+    }
+    else
+    {
+      return <div className="text-light">You do not have access to this page</div>;
+    }
+  }
+
 }
 
 export default App;

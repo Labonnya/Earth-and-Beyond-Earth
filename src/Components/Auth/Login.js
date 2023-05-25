@@ -171,6 +171,13 @@ function LoginForm() {
             <span className="regtxt">Register Now!</span>
           </Link>
         </div>
+
+        <div className="forget-pass">
+          <Link to="/forgetPassCodeSend">
+            <span className="regtxt">Forgot Your Password?</span>
+          </Link>
+        </div>
+
       </div>
     </Container>
   );

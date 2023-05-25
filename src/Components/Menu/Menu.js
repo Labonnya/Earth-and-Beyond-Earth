@@ -44,7 +44,7 @@ const Menu = () => {
       
       <div className="row">
         <div className="col-4">
-        <Link to='/quizMode' className="link-decoration">
+        <Link to='/quizPage' className="link-decoration">
           <Card body className="text-center mx-auto mt-4 menu-card">
             <BsFillPatchQuestionFill size="80px" className="my-3" />
             <h3>Quiz</h3>

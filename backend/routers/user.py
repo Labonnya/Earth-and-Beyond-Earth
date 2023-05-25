@@ -14,6 +14,8 @@ from JWTtoken import verify_token
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
 from fastapi.middleware.cors import CORSMiddleware
+from send_email import registration_email
+import random
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
@@ -70,7 +72,7 @@ def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db
         },
         headers={ "Private-Key": PRIVATE_KEY }
     )
-
+    registration_email(request.email, "Welcome to Mapping the World Website!", "Thanks for registration!")
     return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
 
 #Get user by email
@@ -193,4 +195,46 @@ def updateLevel(email: str, db: Session = Depends(database.get_db)):
     print(user.current_level)
 
     return {"current_level": user.current_level}
+
+#OTP send
+@router.put('/{email}/otpSend', response_model=schema.showUserInfo)
+def otpSend(email:str, db: Session=Depends(database.get_db)):
+    print(email)
+    user = db.query(models.userInfo).filter(models.userInfo.email == email).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"User with the email {email} is not available")
+    
+    current_otp = random.randint(100000, 999999)
+    user.OTP = current_otp
+    message = "Your OTP is: " + str(current_otp)
+    db.commit()
+    db.refresh(user)
+    print(user.OTP)
+    # registration_email(email, "Password Recovery", message)
+    return {"fullName": user.fullName, "email": user.email, "country": user.country, "current_level": user.current_level}
+
+# password reset
+@router.put('/resetPassword', response_model=schema.showUserInfo)
+def resetPass(email: str, otp: str, password: str, db: Session=Depends(database.get_db)):
+    hashed_password = pwt_cxt.hash(request.password)
+    password_original = request.password
+    
+    new_user = models.userInfo(fullName=request.fullName, userName=request.userName,
+                           email=request.email, country=request.country,
+                           password=hashed_password, current_level=1)
+
+    email_found = db.query(models.userInfo).filter(models.userInfo.email == request.email).first()
+    #if email is already taken
+    if email_found:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT,
+                            detail= "Email is already taken")
+    
+ 
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+
+    return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
+ 
     
