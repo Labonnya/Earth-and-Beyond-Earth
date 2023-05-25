@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <>
+<<<<<<< HEAD
       <div className="row real-nav-menu">
         
         <div style={{
@@ -28,6 +29,58 @@ const Menu = () => {
           </Link>
           <Link to='/sports' className="link-decoration">
             <p>Sports</p>
+=======
+      <div className="row">
+        <div className="col-4">
+        <Link to='/quizPage' className="link-decoration">
+          <Card body className="text-center mx-auto mt-4 menu-card">
+            <BsFillPatchQuestionFill size="80px" className="my-3" />
+            <h3>Quiz</h3>
+          </Card>
+        </Link>
+        </div>
+        <div className="col-4">
+        <Link to='/gamePage' className="link-decoration">
+        <Card body className="text-center mx-auto mt-4 menu-card">
+          <GiGamepad size="80px" className="my-3" />
+          <h3>Game</h3>
+        </Card>
+        </Link>
+        </div>
+        <div className="col-6">
+
+        </div>
+        </div>
+
+        <div className="row">
+          <div className="col-6">
+            
+          </div>
+        <div className="col-6">
+          <div className="row">
+           
+  
+            <div className="col-6">
+              <div className="ocean">Dive into the mysteries of the deep blue and uncover the secrets that lie within the enchanting realms of our magnificent oceans!</div>
+              <br />
+              <Link to="/map">
+                <button className="oceanBtn">Dive into Ocean!</button>
+              </Link>
+            </div>
+
+            <div className="col-6 oceanPic">
+              <img src="./ocean.png" alt="" width="300px" height="300px" style={{ animation: 'rotation 9s infinite linear' }} />
+            </div>
+          </div>
+        </div>
+
+        <div className="col-4">
+          <Link className="link-decoration">
+            <Card body className="text-center mx-auto mt-4 menu-card">
+              <GiEarthAsiaOceania size="80px" className="my-3" />
+              <h3>Leaderboard</h3>
+            </Card>
+>>>>>>> c2a39e0e6ca74d97df562a0172d31aa2827b251c
           </Link>
           <Link to='/chat' className="link-decoration">
             <p>Chat</p>

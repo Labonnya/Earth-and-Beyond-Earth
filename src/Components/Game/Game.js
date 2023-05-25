@@ -912,7 +912,7 @@ const handleNext = () => {
   } else {
   return (
     <>
-    <button onClick={handleLogout}>Logout</button>
+    <button onClick={handleLogout} className="nav-link ouline=0 border=0 bg-transparent text-primary">Logout</button>
     {showScore? (
       <div className="text-center">
       <div className="row">
