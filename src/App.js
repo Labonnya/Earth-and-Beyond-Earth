@@ -25,6 +25,8 @@ import Travel from './Components/Travel/Travel';
 import Space from './Components/Space/Space';
 import SpaceConcept from './Components/SpaceConcept.js/SpaceConcept';
 import SpaceMenu from './Components/SpaceMenu/SpaceMenu';
+import SpaceMIssion from './Components/SpaceMission/SpaceMIssion';
+import SpaceTravel from './Components/SpaceTravel/SpaceTravel';
 
 
 function App() {
@@ -58,6 +60,8 @@ function App() {
       <Route path="/union" element={<UnionMap/>} />
       <Route path="/SpaceConcept" element={<SpaceConcept/>} />
       <Route path="/spaceMenu" element={<SpaceMenu/>} />
+      <Route path="/spaceMission" element={<SpaceMIssion/>} />
+      <Route path="/spaceTravel" element={<SpaceTravel/>} />
     </Routes>
     </div>
   );
