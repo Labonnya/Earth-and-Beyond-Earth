@@ -105,10 +105,31 @@ def createUserInfo(request: schema.userScoreEmailId, db: Session=Depends(databas
     
     return {"total_score": score}
 
-# get 3 top scorer
-@router.get('/top-scorers', response_model=List[schema.TopScorer])
+# get 3 top scorer in quiz
+@router.get('/top-scorers-quiz', response_model=List[schema.TopScorer])
 def get_top_scorers(db: Session = Depends(database.get_db)):
     top_scorers = db.query(models.user_plays_quiz.email, func.sum(models.user_plays_quiz.total_score).label('total_score')). \
+        filter(models.user_plays_quiz.id != 100). \
+        group_by(models.user_plays_quiz.email). \
+        order_by(desc('total_score')). \
+        limit(3).all()
+
+    if not top_scorers:
+        raise HTTPException(status_code=404, detail="No scorers found.")
+
+    result = []
+    for email, total_score in top_scorers:
+        user = db.query(models.userInfo).filter_by(email=email).first()
+        if user:
+            result.append({"username": user.userName, "email": email, "total_score": total_score})
+
+    return result
+
+# get 3 top scorer in game
+@router.get('/top-scorers-game', response_model=List[schema.TopScorer])
+def get_top_scorers(db: Session = Depends(database.get_db)):
+    top_scorers = db.query(models.user_plays_quiz.email, func.sum(models.user_plays_quiz.total_score).label('total_score')). \
+        filter(models.user_plays_quiz.id == 100). \
         group_by(models.user_plays_quiz.email). \
         order_by(desc('total_score')). \
         limit(3).all()
