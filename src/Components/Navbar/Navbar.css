@@ -31,7 +31,7 @@
   }
 }
 
-.btn {
+.btn-dist {
   -webkit-border-radius: 14;
   -moz-border-radius: 14;
   border-radius: 14px;
@@ -48,7 +48,7 @@
   margin-left: 105px;
 }
 
-.btn:hover {
+.btn-dist:hover {
   background: rgb(228,223,218);
   background: radial-gradient(circle, rgba(228,223,218,1) 0%, rgba(4,51,75,1) 100%);  
   border: solid #E4DFDA 4px;
