@@ -45,9 +45,17 @@ const SpaceMenu = () => {
       </div>
 
       <div className='row travel'>
-      
+  <div className='mt-5 align-items-center'>
+    <p className='travel-space-p'>Venture into the awe-inspiring saga of humanity's odyssey through the cosmos, where dreams defy gravity and the stars become our guide.</p>
+    <button className='btn-space-travel'>Watch Space Travel</button>
+  </div>
+</div>
+      <div className='row mission-xd'>
+      <div className='mt-5 align-items-center'>
+    <p className='travel-space-p'>Venture into the awe-inspiring saga of humanity's odyssey through the cosmos, where dreams defy gravity and the stars become our guide.</p>
+    <button className='btn-space-travel'>Watch Space Travel</button>
+  </div>
       </div>
-      <div className='row'></div>
     </div>
   );
 };

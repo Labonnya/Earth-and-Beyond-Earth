@@ -1,0 +1,65 @@
+.mission{
+    margin-left: 80px;
+}
+.mission1{
+    margin-top: 40px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 100px rgba(255, 255, 255, 2.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(147, 222, 252, 2.8);
+    }
+}
+
+.htext{
+    margin-top: 50px;
+    color:azure;
+    animation: glow 1s infinite alternate;
+}
+
+.mission1::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../public/spaceMission1.png);
+    opacity: 0; /* Set initial opacity to 0 */
+    z-index: -1000;
+    background-position: center;
+    background-size: cover;
+    animation: fade-in 1s ease-in forwards, scrollBackground 20s linear infinite;
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.4; /* Adjust the target opacity value as desired */
+    }
+  }
+ 
+  @keyframes scrollBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  .image-container {
+    position: relative;
+    transform: translateY(13%);
+  }
+
+  .image-container1{
+    position: relative;
+    transform: translateY(19%);
+  }
+  

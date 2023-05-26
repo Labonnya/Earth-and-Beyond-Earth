@@ -146,6 +146,34 @@
       transform: scale(1.05);
     }
   }
+
+  .travel {
+    background-image: url(../../../public/travel-korbo.png) !important;
+    min-height: 100vh;
+    background-position: 50%;
+    background-size: cover;
+  }
+
+  .mission-xd {
+    background-image: url(../../../public/spaceBg2.jpg) !important;
+    min-height: 100vh;
+    background-position: 50%;
+    background-size: cover;
+  }
+
+  .btn-space-travel {
+    background-color: #0099ff;
+    border: #fff 1px solid transparent;
+    color: #fff;
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+  }
+
+  .btn-space-travel:hover {
+    background-color: #2a2678;
+  }
   
   
   

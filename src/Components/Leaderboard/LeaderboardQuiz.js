@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Leaderboard = () => {
+const LeaderboardQuiz = () => {
   const [topScorers, setTopScorers] = useState([]);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const Leaderboard = () => {
 
   const fetchTopScorers = async () => {
     try {
-      const response = await fetch('http://localhost:8000/plays/top-scorers');
+      const response = await fetch('http://localhost:8000/plays/top-scorers-quiz');
       const data = await response.json();
       setTopScorers(data);
     } catch (error) {
@@ -46,4 +46,4 @@ const Leaderboard = () => {
   );
 };
 
-export default Leaderboard;
+export default LeaderboardQuiz;

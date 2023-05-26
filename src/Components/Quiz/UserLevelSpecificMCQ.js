@@ -30,7 +30,7 @@ function UserLevelSpecificMCQ({ props }) {
   const [timeLeft, setTimeLeft] = useState(20); // 3 minutes in seconds
   const [timerRunning, setTimerRunning] = useState(true);
   const [timer, setTimer] = useState('00:00:00');
-
+  const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   const intervalRef = useRef(null);
 
@@ -271,6 +271,10 @@ function UserLevelSpecificMCQ({ props }) {
     intervalRef.current = id;
   }
 
+  const tryNavigate = () => {
+    navigate('/userLevelSpecificMCQ')
+  }
+
   function getDeadlineTime(){
     let deadline = new Date();
     deadline.setSeconds(deadline.getSeconds()+60);
@@ -284,7 +288,7 @@ function UserLevelSpecificMCQ({ props }) {
 
   // level update
   useEffect(() => {
-    if (score >= 2) {
+    if (score >= 4) {
       const nextLevelNumber = currentLevel + 1;
       const nextLevel = nextLevelNumber;
       setNextLevel(nextLevel);
@@ -394,11 +398,19 @@ function UserLevelSpecificMCQ({ props }) {
               <h2 className="text-light">
                 Score: {score}/{mcqQuestions.length}
               </h2>
-              {score >= 2 && (
-                <h2 className="text-light">
-                  Congratulations! You have reached level {nextLevel}.
-                </h2>
-              )}
+              {score >= 2 ? (
+  <>
+    <h2 className="text-light">
+      Congratulations! You have reached level {nextLevel}.
+    </h2>
+    <Link to='/quizMode'><button>Play Next Level</button></Link>
+  </>
+) : (
+  <>
+    <Link to='/quizMode'><button>Try again</button></Link>
+  </>
+)}
+
             </>
           ) : (
             <button onClick={handleSubmit}>Submit</button>
