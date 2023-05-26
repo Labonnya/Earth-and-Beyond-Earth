@@ -10,6 +10,9 @@ const SpaceMenu = () => {
   return (
     <div className='space-menu-item'>
       <div className='row space-bg' style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', minHeight: '100vh' }}>
+        <div className='col-6'>
+          
+        </div>
         <button className='btn-space-menu' style={{ textShadow: '0 2px 20px rgba(255, 255, 255, 0.8)', transition: 'color 0.3s', animation: 'glow1 1s infinite alternate' }} onClick={scrollToConcept}>
           Unveiling the Cosmos: Embark on a Celestial Journey with Us!
         </button>
@@ -42,7 +45,7 @@ const SpaceMenu = () => {
       </div>
 
       <div className='row travel'>
-        
+      
       </div>
       <div className='row'></div>
     </div>

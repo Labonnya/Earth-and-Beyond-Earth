@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Menu from "../Menu/Menu";
 
 function Register() {
   const [fullName, setFullName] = useState("");
@@ -49,7 +50,7 @@ function Register() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid register-bg">
       <div className="row" >
         <div className="col-1"></div>
         <div className="col-5 box1">
@@ -138,7 +139,16 @@ function Register() {
            Already have an account? <Link to='/login'><span className='regtxt2'>Login Now!</span></Link>
         </div>
         </div>
-        <div className="col-6 imagee"></div>
+        <div className="col-6">
+        <div className="row">
+      <div className="col-6 planet-prev">
+        <div className="planet-container">
+        <img src="./planet-prev.png" alt="planet" width="200px"/>
+        </div>
+      </div>
+      <div className="col-6"><Menu /></div>
+      </div>
+        </div>
       </div>
     </div>
   );

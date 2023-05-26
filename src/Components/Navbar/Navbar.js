@@ -47,7 +47,7 @@ const Navigation = () => {
         </div>
         <div className='col-4 real-nav'>
           <div style={{
-            paddingTop: "140px",
+            paddingTop: "100px",
           }}>
             <button className='btn-space-menu' style={{ 
               fontSize: "30px", 
@@ -56,6 +56,22 @@ const Navigation = () => {
               Earth, and Beyond Earth
             </button>
             <p>Welcome to our extraordinary online portal, a captivating destination where the wonders of space, the beauty of Earth, and the pursuit of knowledge converge. Immerse yourself in a realm where the vastness of the cosmos meets the intricate details of our planet. Explore the mysteries of the universe, unravel the secrets of celestial bodies, and deepen your understanding of the cosmos.</p>
+            <Link to='/spaceMenu'>
+            <button className='btn-space-menu' style={{ 
+              fontSize: "20px",
+              backgroundColor: "#4158D0",
+              backgroundImage: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+              // webkitBorderOrderRadius: "28";
+              MozBorderRadius: "28",
+              WebkitBorderRadius: "28",
+              borderRadius: "28px",
+              padding: '10px 20px 10px 20px', 
+              textShadow: '0 2px 20px rgba(255, 255, 255, 0.8)', 
+              transition: 'color 0.3s',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4)' }}>
+              Explore Beyond Earth
+            </button>
+            </Link>
           </div>
         </div>
         <div className="col-2">

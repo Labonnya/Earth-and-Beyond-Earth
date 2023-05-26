@@ -162,7 +162,7 @@ function LoginForm() {
             <Button type="submit">Login</Button>
             {isLogin && (
               <div className="success-message text-success">
-                Login successful!
+                <b>Login successful!</b>
               </div>
             )}
             {!isLogin && message && <Message>{message}</Message>}
@@ -180,7 +180,14 @@ function LoginForm() {
             <span className="regtxt">Forgot Your Password?</span>
           </Link>
         </div>
-
+      </div>
+      <div className="row">
+      <div className="col-6 planet-prev">
+        <div className="planet-container">
+        <img src="./planet-prev.png" alt="planet" width="200px"/>
+        </div>
+      </div>
+      <div className="col-6"><Menu /></div>
       </div>
     </Container>
     </>

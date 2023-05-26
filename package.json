@@ -25,6 +25,7 @@
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-js-pagination": "^3.0.3",
     "react-router-dom": "^6.7.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",

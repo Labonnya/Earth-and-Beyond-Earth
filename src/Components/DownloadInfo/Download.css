@@ -3,21 +3,69 @@ table {
     width: 80%;
     margin-left: 140px;
   }
+
+  th {
+    position: sticky;
+    top: 0; /* Don't forget this, required for the stickiness */
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 50%, #C850C0 100%, #FFCC70 100%);
+    color: white;
+    text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8); 
+    transition: color 0.3s;
+  }
   
   th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    
     text-align: center;
   }
-  
-  th {
-    background-color: #797676;
-  }
+
     td{
-background-color: #f2f2f2;
+      font-weight: 600;
+      color: white;
+      background-color: none;
+    }
+
+    td:hover {
+      opacity: 0.8;
+      background-color: #4158D0;
     }
   p{
     color: #f2f2f2;
   }
+
+  .download-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+
+  /* Download.css */
+.white-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.white-pagination li {
+  list-style: none;
+}
+
+.white-pagination a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.white-pagination li:hover {
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8); 
+  transition: color 0.3s;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 50%, #C850C0 100%, #FFCC70 100%);
+}

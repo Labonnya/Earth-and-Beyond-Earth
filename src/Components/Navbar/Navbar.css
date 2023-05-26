@@ -78,12 +78,10 @@
 .login-btn:hover {
   opacity: 0.6;
   color: #ADB6C4;
+  transition: all ease 0.5s;
+  opacity: 0.6;
 }
 
 .real-nav {
   float: right;
-}
-
-.country-s {
-
 }
