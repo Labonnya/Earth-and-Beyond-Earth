@@ -11,35 +11,17 @@ const SpaceBar = () => {
         <div style={{
           paddingTop: "120px",
         }}>
-          <Link to='/map' className="link-decoration">
-            <p>Countries</p>
+          <Link to='/SpaceConcept' className="link-decoration">
+            <p>Concept of Space</p>
           </Link>
-          <Link to='/ocean' className="link-decoration">
-            <p>Ocean</p>
+          <Link to='/space' className="link-decoration">
+            <p>Explore Solar System</p>
           </Link>
-          <Link to='/union' className="link-decoration">
+          <Link to='/spaceTravel' className="link-decoration">
             <p>Union</p>
           </Link>
-          <Link to='/travel' className="link-decoration">
+          <Link to='/spaceMission' className="link-decoration">
             <p>Travel</p>
-          </Link>
-          <Link to='/climate' className="link-decoration">
-            <p>Climate</p>
-          </Link>
-          <Link to='/sports' className="link-decoration">
-            <p>Sports</p>
-          </Link>
-          <Link to='/chat' className="link-decoration">
-            <p>Chat</p>
-          </Link>
-          <Link to='/quizMode' className="link-decoration">
-            <p>Quiz</p>
-          </Link>
-          <Link to='/gamePage' className="link-decoration">
-            <p>Game</p>
-          </Link>
-          <Link to='/download' className="link-decoration">
-            <p>Download</p>
           </Link>
         </div>
       </div>

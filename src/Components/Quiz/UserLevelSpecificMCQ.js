@@ -37,6 +37,10 @@ function UserLevelSpecificMCQ({ props }) {
   // console.log(props.user.email)
   // console.log(props.user.secret)
 
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
+  };
+
   useEffect(() => {
     if (authContext.token) {
       console.log("chole?");
@@ -104,31 +108,6 @@ function UserLevelSpecificMCQ({ props }) {
         .catch((error) => console.error(error));
     }
   }, [currentLevel]);
-
-
-  // const handleLogin = () => {
-  //   // Perform login and retrieve access token
-  //   fetch("http://localhost:8000/login", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: new URLSearchParams({
-  //       username: email,
-  //       password: password
-  //     })
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Login failed");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       const { access_token } = data;
-  //       localStorage.setItem("access_token", access_token);
-  //       setToken(access_token);
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
 
   const handleOptionChange = (event, index) => {
     const updatedSelectedOptions = [...selectedOptions];
@@ -214,24 +193,6 @@ function UserLevelSpecificMCQ({ props }) {
         .catch((error) => console.error(error));
     }}
   };
-  
-//timer
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTimeLeft((prevTime) => {
-  //       if (prevTime === 0) {
-  //         clearInterval(timer);
-  //         setShowResult(true);
-  //         setTimerRunning(false); // Stop the timer
-  //         return prevTime;
-  //       } else {
-  //         return prevTime - 1;
-  //       }
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(timer);
-  // }, []);
 
   //timer
   function getTimeRemaining(endtime){
@@ -271,10 +232,6 @@ function UserLevelSpecificMCQ({ props }) {
     intervalRef.current = id;
   }
 
-  const tryNavigate = () => {
-    navigate('/userLevelSpecificMCQ')
-  }
-
   function getDeadlineTime(){
     let deadline = new Date();
     deadline.setSeconds(deadline.getSeconds()+60);
@@ -299,97 +256,106 @@ function UserLevelSpecificMCQ({ props }) {
     return <LoginForm />;
   } else {
 
-  return (
-    <div className='world-map' >
-        <Navbar>
-          <Container>
-            <Navbar.Brand href="#home">
-              <Link to="/">
-                <button className="login-btn mt-2 arrow-back-btn">
-                  <TbArrowBackUp size="40px" />
-                </button>
-              </Link>
-            </Navbar.Brand>
-            <button onClick={handleLogout}>Logout</button>
-          </Container>
-        </Navbar>
-      {/* {currentLevel ? ( */}
-        <div className="container" style={{ height: "100vh", width: "100vw" }} >
-          <h1 className="text-light">MCQ Questions</h1>
-          { intervalRef.current  ? (
+    return (
+      <div className="world-map">
+      <Navbar>
+      <Container>
+        <Navbar.Brand>
+          <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
+            <TbArrowBackUp size="40px" />
+          </button>
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
+        <div className="container quiz-container">
+          <h1 className="text-light">MCQ Questions (Level {currentLevel})</h1>
+          {intervalRef.current ? (
             !showResult ? (
-            <div className="timer text-light">Time Left: {timer} s</div>
-            )
-            : (
+              <div className="timer text-light">Time Left: {timer} s</div>
+            ) : (
               <div></div>
             )
-          )
-            : (
+          ) : (
             <div className="timer text-light">Your Time is up</div>
           )}
-          <ol className="text-light">
-            {mcqQuestions.map((mcqQuestion, index) => (
-              <li key={mcqQuestion.question}>
-                <h2>{mcqQuestion.question}</h2>
-                <ul>
-                  <li>
-                    <input
-                      type="radio"
-                      id={`${mcqQuestion.option1}-${index}`}
-                      name={`option-${index}`}
-                      value={mcqQuestion.option1}
-                      checked={selectedOptions[index] === mcqQuestion.option1}
-                      onChange={(event) => handleOptionChange(event, index)}
-                    />
-                    <label htmlFor={`${mcqQuestion.option1}-${index}`}>{mcqQuestion.option1}</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id={`${mcqQuestion.option2}-${index}`}
-                      name={`option-${index}`}
-                      value={mcqQuestion.option2}
-                      checked={selectedOptions[index] === mcqQuestion.option2}
-                      onChange={(event) => handleOptionChange(event, index)}
-                    />
-                    <label htmlFor={`${mcqQuestion.option2}-${index}`}>{mcqQuestion.option2}</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id={`${mcqQuestion.option3}-${index}`}
-                      name={`option-${index}`}
-                      value={mcqQuestion.option3}
-                      checked={selectedOptions[index] === mcqQuestion.option3}
-                      onChange={(event) => handleOptionChange(event, index)}
-                    />
-                    <label htmlFor={`${mcqQuestion.option3}-${index}`}>{mcqQuestion.option3}</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id={`${mcqQuestion.option4}-${index}`}
-                      name={`option-${index}`}
-                      value={mcqQuestion.option4}
-                      checked={selectedOptions[index] === mcqQuestion.option4}
-                      onChange={(event) => handleOptionChange(event, index)}
-                    />
-                    <label htmlFor={`${mcqQuestion.option4}-${index}`}>{mcqQuestion.option4}</label>
-                  </li>
-                </ul>
-              </li>
-            ))}
-          </ol>
-          {(showResult)? (
+<ol className="text-light">
+  {mcqQuestions.map((mcqQuestion, index) => (
+    <li key={mcqQuestion.question}>
+      <div className="question-card">
+        <h2 className="question-text">{mcqQuestion.question}</h2>
+        <ul className="options-list">
+          <li>
+            <input
+              type="radio"
+              id={`${mcqQuestion.option1}-${index}`}
+              name={`option-${index}`}
+              value={mcqQuestion.option1}
+              checked={selectedOptions[index] === mcqQuestion.option1}
+              onChange={(event) => handleOptionChange(event, index)}
+            />
+            <label htmlFor={`${mcqQuestion.option1}-${index}`}  style={{
+                  paddingLeft: '20px'
+
+            }}>{mcqQuestion.option1}</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id={`${mcqQuestion.option2}-${index}`}
+              name={`option-${index}`}
+              value={mcqQuestion.option2}
+              checked={selectedOptions[index] === mcqQuestion.option2}
+              onChange={(event) => handleOptionChange(event, index)}
+            />
+            <label htmlFor={`${mcqQuestion.option2}-${index}`} style={{
+                  paddingLeft: '20px'
+
+            }}>{mcqQuestion.option2}</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id={`${mcqQuestion.option3}-${index}`}
+              name={`option-${index}`}
+              value={mcqQuestion.option3}
+              checked={selectedOptions[index] === mcqQuestion.option3}
+              onChange={(event) => handleOptionChange(event, index)}
+            />
+            <label htmlFor={`${mcqQuestion.option3}-${index}`} style={{
+                  paddingLeft: '20px'
+
+            }}>{mcqQuestion.option3}</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id={`${mcqQuestion.option4}-${index}`}
+              name={`option-${index}`}
+              value={mcqQuestion.option4}
+              checked={selectedOptions[index] === mcqQuestion.option4}
+              onChange={(event) => handleOptionChange(event, index)}
+            />
+            <label htmlFor={`${mcqQuestion.option4}-${index}`} style={{
+                  paddingLeft: '20px'
+
+            }}>{mcqQuestion.option4}</label>
+          </li>
+        </ul>
+      </div>
+    </li>
+  ))}
+</ol>
+
+          {showResult ? (
             <>
               <h2 className="text-light">Result:</h2>
-              <ol className="text-light">
+              <ol className="text-light result-list">
                 {isAnswerCorrect.map((answer, index) => (
                   <li key={mcqQuestions[index].question}>
                     {answer.isCorrect ? (
-                      <span style={{ color: "green" }}>✓</span>
+                      <span className="correct-answer"><b>✓</b></span>
                     ) : (
-                      <span style={{ color: "red" }}>✗</span>
+                      <span className="wrong-answer"><b>✗</b></span>
                     )}
                     {mcqQuestions[index].question} - You answered: {answer.userAnswer}, Correct answer: {answer.correctAnswer}
                   </li>
@@ -399,46 +365,28 @@ function UserLevelSpecificMCQ({ props }) {
                 Score: {score}/{mcqQuestions.length}
               </h2>
               {score >= 2 ? (
-  <>
-    <h2 className="text-light">
-      Congratulations! You have reached level {nextLevel}.
-    </h2>
-    <Link to='/quizMode'><button>Play Next Level</button></Link>
-  </>
-) : (
-  <>
-    <Link to='/quizMode'><button>Try again</button></Link>
-  </>
-)}
-
+                <>
+                  <h2 className="text-light">
+                    Congratulations! You have reached level {nextLevel}.
+                  </h2>
+                  <Link to="/quizMode">
+                    <button className="play-next-level-btn">Play Next Level</button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/quizMode">
+                    <button className="try-again-btn">Try again</button>
+                  </Link>
+                </>
+              )}
             </>
           ) : (
-            <button onClick={handleSubmit}>Submit</button>
+            <button className="submit-btn" onClick={handleSubmit}>Submit</button>
           )}
         </div>
-      {/* ) } */}
-      {/* // : (
-      //   <>
-      //     <input */}
-      {/* //       type="email"
-      //       placeholder="Email"
-      //       value={email}
-      //       onChange={(e) => setEmail(e.target.value)}
-      //     />
-      //     <input
-      //       type="password"
-      //       placeholder="Password"
-      //       value={password}
-      //       onChange={(e) => setPassword(e.target.value)}
-      //     />
-      //     <button onClick={handleLogin}>Login</button>
-      //   </>
-      // ) */}
-
-      
-    
-    </div>
-  );
+      </div>
+    );    
     }
 }
 

@@ -10,6 +10,11 @@ const SpaceScene = () => {
   const [planet, setPlanet] = useState('');
   const [expanded, setExpanded] = useState(false);
 
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
+  };
+
+
   const handlePlanetClick = (planetName) => {
     setPlanet(planetName);
     setShowModal(true);
@@ -62,7 +67,7 @@ const SpaceScene = () => {
           <Container>
             <Navbar.Brand href="#home">
               <Link to="/">
-                <button className="login-btn mt-2 arrow-back-btn">
+                <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
                   <TbArrowBackUp size="40px" />
                 </button>
               </Link>
@@ -79,7 +84,7 @@ const SpaceScene = () => {
               onClick={() => handlePlanetClick(planet.name)}
             ></div>
             <div className={`${planet.name.toLowerCase()}-text`}>
-              <p>{planet.name}</p>
+            {planet.name !== 'Sun' && <p>{planet.name}</p>}
             </div>
           </div>
         ))}

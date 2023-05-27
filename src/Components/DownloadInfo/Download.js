@@ -107,7 +107,7 @@ function Download() {
           Click Here!
         </a>
       </p>
-      <table>
+      <table className="tableD">
         <thead>
           <tr>
             <th>Name</th>

@@ -38,6 +38,10 @@
   z-index: 100;
 }
 
+.sun-text {
+  
+}
+
 .mercury-outline {
   border-radius: 50%;
   border: 1px solid rgba(241, 235, 235, 0.6);

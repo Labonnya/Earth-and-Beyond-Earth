@@ -321,7 +321,7 @@ const UnionMap = () => {
           <Container>
             <Navbar.Brand href="#home">
               <Link to="/">
-                <button className="login-btn mt-2 arrow-back-btn">
+                <button className="login-btn mt-2 arrow-back-btn-quiz">
                   <TbArrowBackUp size="40px" />
                 </button>
               </Link>

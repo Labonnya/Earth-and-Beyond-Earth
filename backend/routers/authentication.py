@@ -25,8 +25,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-PROJECT_ID = "aa67eab9-95be-4d97-936f-f7e35fe4aa28"
-PRIVATE_KEY = "649eff59-ccd4-4184-b879-07c7af1e84b4"
+PROJECT_ID = "91f4b983-71c1-4c75-82ee-b40437b9e2b9"
+PRIVATE_KEY = "4b299311-0cda-44fd-9554-a3c0c2cf5706"
 
 @router.post('/')
 def login(request:OAuth2PasswordRequestForm = Depends(), 

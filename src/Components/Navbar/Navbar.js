@@ -57,7 +57,7 @@ const Navigation = () => {
             </button>
             <p>Welcome to our extraordinary online portal, a captivating destination where the wonders of space, the beauty of Earth, and the pursuit of knowledge converge. Immerse yourself in a realm where the vastness of the cosmos meets the intricate details of our planet. Explore the mysteries of the universe, unravel the secrets of celestial bodies, and deepen your understanding of the cosmos.</p>
             <Link to='/spaceMenu'>
-            <button className='btn-space-menu' style={{ 
+              <button className='btn-space-menu' style={{ 
               fontSize: "20px",
               backgroundColor: "#4158D0",
               backgroundImage: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",

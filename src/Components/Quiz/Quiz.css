@@ -22,3 +22,31 @@
   .ques {
     font-size: 2vw;
 }
+
+.quiz-bg {
+  background-image: url(../../../public/quiz-bg.png) !important;
+  min-height: 100vh;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.btn-space-menu-quiz {
+  background: none;
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: larger;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-space-menu-quiz:hover {
+  color: rgb(156, 199, 255);
+}
+
+.arrow-back-btn-quiz {
+  position: absolute;
+  top: 10px;
+  left: 650px;
+}

@@ -95,3 +95,9 @@
     animation: glow 1s infinite alternate;
     color: azure;
 }
+
+.arrow-back-btn-new {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}

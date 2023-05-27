@@ -1,10 +1,25 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import "./SpaceMIssion.css";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
 
 const SpaceMIssion = () => {
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
+  };
   return (
     <>
+            <Navbar>
+          <Container>
+            <Navbar.Brand href="#home">
+                <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
+                  <TbArrowBackUp size="40px" />
+                </button>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
     <div className='picSpace'>
     <div> 
         <h2 className='htext'>Space Missions</h2>

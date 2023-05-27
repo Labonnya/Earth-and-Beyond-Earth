@@ -1,0 +1,34 @@
+.spaceTravel{
+    
+    background-position: center;
+    background-size: cover;
+}
+
+.row1{
+    margin-top: 70px;
+    margin-left: 70px;
+    margin-bottom: 50px;
+}
+
+.row2{
+    margin-left: 70px;
+}
+
+.htext1{
+    color:azure;
+    animation: glow 1s infinite alternate;
+    margin-top: 150px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 100px rgba(255, 255, 255, 2.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(147, 222, 252, 2.8);
+    }
+}
+
+.arrow-back-travel-space {
+    
+}
