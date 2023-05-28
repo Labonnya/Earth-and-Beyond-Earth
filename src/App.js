@@ -107,7 +107,7 @@ function App() {
   //Role Management
   function AddingMCQ({children}){
     console.log(authContext.email);
-    if(email=== "a@a.com")
+    if(authContext.email === "a@a.com")
     {
       return <>{children}</>;
     } 
@@ -118,7 +118,7 @@ function App() {
   }
 
   function DeletingMCQ({children}){
-    if(email=== "a@a.com")
+    if(authContext.email === "a@a.com")
     {
       return <>{children}</>;
     }
@@ -129,7 +129,7 @@ function App() {
   }
 
   function UpdatingMCQ({children}){
-    if(email=== "a@a.com")
+    if( authContext.email === "a@a.com")
     {
       return <>{children}</>;
     }

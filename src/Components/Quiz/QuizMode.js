@@ -93,7 +93,7 @@ const QuizMode = () => {
           </Link>
           <br></br>
 
-        {email === "a@a.com" &&
+          {authContext.email === "a@a.com" &&
           <Link to="/addMCQ" className="link-decoration" style={{
             marginRight: "20px"
           }}>
@@ -112,9 +112,10 @@ const QuizMode = () => {
               Add Quiz
             </button>
           </Link>
-        }
+          }
+        
 
-        {email === "a@a.com" &&
+        {authContext.email === "a@a.com" &&
           <Link to="/deleteMCQ" className="link-decoration" style={{
             marginRight: "20px"
           }}>
@@ -134,7 +135,7 @@ const QuizMode = () => {
             </button>
           </Link>
        }
-        {email === "a@a.com" &&
+        {authContext.email === "a@a.com" &&
           <Link to="/updateMCQ" className="link-decoration" style={{
             marginRight: "20px"
           }}>

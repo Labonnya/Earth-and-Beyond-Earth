@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Hooks/AuthContext";
+
+
 
 
 const Container = styled.div`
@@ -84,34 +86,42 @@ const Message = styled.p`
   font-size: 16px;
 `;
 
-function ResetPassword({email}) {
-    const [otp, setOtp] = useState("");
-    const [password, setPassword] = useState("");
+function ResetPassword() {
+  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+  
+  const location = useLocation();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-        formData.append("otp", otp);
-        formData.append("password", password);
-        console.log(email);
-        fetch("http://localhost:8000/user/${email}/resetPassword", {
-          method: "PUT",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.access_token) {
-                
-              setTimeout(() => {
-                // navigate("/");
-              }, 3000);
-              
-            } 
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
+  // Extracting the email from the query parameter
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const parsedOtp = parseInt(otp, 10);
+    const formData = new FormData();
+    formData.append("email", email);
+    // formData.append("otp", parsedOtp); 
+    formData.append("password", password);
+    console.log(email);
+    fetch(`http://localhost:8000/user/resetPassword`, {
+      method: "PUT",
+      body: formData,
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        navigate("/login");
+      } else if (response.status === 400) {
+        setErrorMessage("Invalid OTP");
+      }
+    })
+    
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
       return (
         <Container>
@@ -122,8 +132,8 @@ function ResetPassword({email}) {
                 <Label>
                   OTP:
                   <Input
-                    type="text"
-                    value={email}
+                    type="number" step="1"
+                    value={otp}
                     onChange={(e) => setOtp(e.target.value)}
                     required
                   />
@@ -132,12 +142,12 @@ function ResetPassword({email}) {
                   Password:
                   <Input
                     type="password"
-                    value={email}
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </Label>
-                <button onClick={handleSubmit}>Send Code</button>
+                <button onClick={handleSubmit}>Submit</button>
               </Form>
             </FormContainer>
 

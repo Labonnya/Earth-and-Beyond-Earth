@@ -175,11 +175,11 @@ function LoginForm() {
           </Link>
         </div>
 
-        <div className="forget-pass">
+        {/* <div className="forget-pass">
           <Link to="/forgetPassCodeSend">
             <span className="regtxt">Forgot Your Password?</span>
           </Link>
-        </div>
+        </div> */}
       </div>
       <div className="row">
       <div className="col-6 planet-prev">

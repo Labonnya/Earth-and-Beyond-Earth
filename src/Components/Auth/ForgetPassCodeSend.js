@@ -87,30 +87,30 @@ const Message = styled.p`
 
 function ForgetPassCodeSend() {
     const [email, setEmail] = useState("");
+    const authContext = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-        formData.append("email", email);
-        fetch(`http://localhost:8000/user/${email}/otpSend`, {
-          method: "PUT",
-          body: formData,
+      event.preventDefault();
+      const formData = new FormData();
+      formData.append("email", email);
+      fetch(`http://localhost:8000/user/${email}/otpSend`, {
+        method: "PUT",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data) {
+            authContext.emailHandle(email);
+            console.log(data);
+            navigate(`/resetPassword?email=${email}`);
+          }
         })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.access_token) {
-                <ResetPassword email={email} />
-              setTimeout(() => {
-                // navigate("/");
-              }, 3000);
-              
-            } 
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
-
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    
       return (
         <Container>
           <div className="imageee"></div>

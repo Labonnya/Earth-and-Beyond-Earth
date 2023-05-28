@@ -32,7 +32,7 @@ const Menu = () => {
           <Link to='/chat' className="link-decoration">
             <p>Chat</p>
           </Link>
-          <Link to='/quizMode' className="link-decoration">
+          <Link to='/quizPage' className="link-decoration">
             <p>Quiz</p>
           </Link>
           <Link to='/gamePage' className="link-decoration">

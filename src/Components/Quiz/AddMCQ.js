@@ -14,22 +14,6 @@ function AddMCQ() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleDeleteQuestion = (questionId) => {
-
-    // Make the API request to delete the question
-    fetch(`http://localhost:8000/mcq/${questionId}/deleteMCQ`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to delete question");
-        }
-        // Remove the deleted question from the state or refetch the questions from the server
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();

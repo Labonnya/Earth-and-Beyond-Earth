@@ -195,6 +195,7 @@ def updateLevel(email: str, db: Session = Depends(database.get_db)):
     print(user.current_level)
 
     return {"current_level": user.current_level}
+
 #OTP send
 @router.put('/{email}/otpSend', response_model=schema.showUserInfo)
 def otpSend(email:str, db: Session=Depends(database.get_db)):
@@ -214,26 +215,39 @@ def otpSend(email:str, db: Session=Depends(database.get_db)):
     return {"fullName": user.fullName, "email": user.email, "country": user.country, "current_level": user.current_level}
 
 # password reset
-@router.put('/resetPassword', response_model=schema.showUserInfo)
-def resetPass(email: str, otp: str, password: str, db: Session=Depends(database.get_db)):
-    hashed_password = pwt_cxt.hash(request.password)
-    password_original = request.password
-    
-    new_user = models.userInfo(fullName=request.fullName, userName=request.userName,
-                           email=request.email, country=request.country,
-                           password=hashed_password, current_level=1)
+@router.put("/resetPassword", response_model=schema.showUserInfo)
+def resetPass(
+    email: str,
+    # otp: int,
+    password: str,
+    db: Session = Depends(database.get_db)
+):  
+    print(email) 
+    user = db.query(models.userInfo).filter(models.userInfo.email == email).first()
 
-    email_found = db.query(models.userInfo).filter(models.userInfo.email == request.email).first()
-    #if email is already taken
-    if email_found:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT,
-                            detail= "Email is already taken")
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
+
+    # if user.otp != otp:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_400_BAD_REQUEST,
+    #         detail="Invalid OTP"
+    #     )
     
- 
-    db.add(new_user)
+    hashed_password = pwt_cxt.hash(password)
+    password_original = password
+    user.password = hashed_password
     db.commit()
-    db.refresh(new_user)
+    db.refresh(user)
 
-    return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
+    return {
+        "fullName": user.fullName,
+        "email": user.email,
+        "country": user.country,
+        "current_level": user.current_level
+    }
  
     
