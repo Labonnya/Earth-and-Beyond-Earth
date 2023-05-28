@@ -42,7 +42,7 @@ const ChatsPage = (props) => {
       </Navbar>
       <div style={{ height: '100vh', width: '100vw' }}>
         <PrettyChatWindow
-          projectId="aa67eab9-95be-4d97-936f-f7e35fe4aa28"
+          projectId="91f4b983-71c1-4c75-82ee-b40437b9e2b9"
           username={props.user.username}
           secret={props.user.secret}
           style={{ height: '100vh' }}

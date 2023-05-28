@@ -37,8 +37,8 @@ app.add_middleware(
 #Password Hashing
 pwt_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-PROJECT_ID = "aa67eab9-95be-4d97-936f-f7e35fe4aa28"
-PRIVATE_KEY = "649eff59-ccd4-4184-b879-07c7af1e84b4"
+PROJECT_ID = "91f4b983-71c1-4c75-82ee-b40437b9e2b9"
+PRIVATE_KEY = "4b299311-0cda-44fd-9554-a3c0c2cf5706"
 
 
 #Create a new user
@@ -72,7 +72,7 @@ def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db
         },
         headers={ "Private-Key": PRIVATE_KEY }
     )
-    registration_email(request.email, "Welcome to Mapping the World Website!", "Thanks for registration!")
+    #registration_email(request.email, "Welcome to Mapping the World Website!", "Thanks for registration!")
     return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
 
 #Get user by email
