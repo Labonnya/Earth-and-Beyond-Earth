@@ -31,7 +31,7 @@
   }
 }
 
-.btn {
+.btn-dist {
   -webkit-border-radius: 14;
   -moz-border-radius: 14;
   border-radius: 14px;
@@ -48,7 +48,7 @@
   margin-left: 105px;
 }
 
-.btn:hover {
+.btn-dist:hover {
   background: rgb(228,223,218);
   background: radial-gradient(circle, rgba(228,223,218,1) 0%, rgba(4,51,75,1) 100%);  
   border: solid #E4DFDA 4px;
@@ -78,12 +78,21 @@
 .login-btn:hover {
   opacity: 0.6;
   color: #ADB6C4;
+  transition: all ease 0.5s;
+  opacity: 0.6;
 }
 
 .real-nav {
   float: right;
 }
 
-.country-s {
-
+.sync-btn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 20px;
+  padding-top: 30px;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
+  transition: color 0.3s;
+  color: white;
 }

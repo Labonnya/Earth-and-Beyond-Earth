@@ -12,27 +12,33 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.space-bg {
-  background-image: url(../../../public/space-bg.png);
-  min-height: 100vh;
-  background-position: 50%;
-  background-size: cover;
-  width: 1000px;
-}
-
 .btn-space-menu {
     background: none;
     color: white;
     font-family: 'Nunito Sans', sans-serif;
     font-size: larger;
     margin-top: 50px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     font-weight: 600;
     border: none;
 }
 
 .btn-space-menu:hover {
     color: rgb(156, 199, 255);
+}
+
+.btn-space-menu-new {
+  background: none;
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: larger;
+  padding-bottom: 40px;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-space-menu-new:hover {
+  color: rgb(156, 199, 255);
 }
 
 .btn-space-menu:hover, h4:hover {
@@ -52,6 +58,12 @@
     z-index: 100; 
     margin-top: 185px;
     margin-bottom: 185px;
+}
+
+.arrow-back-btn {
+  position: absolute;
+  top: 10px;
+  left: 50px;
 }
 
 @keyframes orbit10{
@@ -98,8 +110,7 @@
   }
 
   .explore {
-    padding-top: 90px;
-    padding-bottom: 10px;
+    padding-bottom: 90px;
     background-image: url(../../../public/explore-1.jpg);
   }
 
@@ -174,7 +185,22 @@
   .btn-space-travel:hover {
     background-color: #2a2678;
   }
+
+  @keyframes floatingAnimation {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   
+  .float-up-animation {
+    animation: floatingAnimation 4s ease-in-out infinite;
+  }
   
+
   
  

@@ -38,6 +38,10 @@
   z-index: 100;
 }
 
+.sun-text {
+  
+}
+
 .mercury-outline {
   border-radius: 50%;
   border: 1px solid rgba(241, 235, 235, 0.6);
@@ -381,7 +385,6 @@ transition: all 0.3s ease;
 }
 
 .modal-p {
-  font-family: 'Wix Madefor Display', sans-serif;
   color: #000;
 }
 
@@ -394,7 +397,7 @@ width: 100%;
 width: 100%;
 }
 
-.btn {
+.btn-space {
   -webkit-border-radius: 14;
   -moz-border-radius: 14;
   border-radius: 14px;

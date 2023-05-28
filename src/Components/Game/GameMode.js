@@ -38,28 +38,63 @@ const GameMode = () => {
     authContext.logout();
   };
 
+
+
   return (
     <>
-    <LoggedNav />
+        <Navbar>
+      <Container>
+        <Navbar.Brand>
+          <Link to='/'>
+          <button className="login-btn mt-2 arrow-back-btn">
+            <TbArrowBackUp size="40px" />
+          </button>
+          </Link>
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
     <div className="container">
       <div className="row my-5">
-        <div className="col-4">
-          <Link to="/game" className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <MdHistoryEdu size="80px" className="my-3" />
-              <h3>Play Game</h3>
-            </Card>
+        <div className='col-6'>
+        <Link to="/game" className="link-decoration">
+          <button className='btn-space-menu-quiz' style={{ 
+              fontSize: "20px",
+              backgroundColor: "#4158D0",
+              backgroundImage: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+              // webkitBorderOrderRadius: "28";
+              MozBorderRadius: "28",
+              WebkitBorderRadius: "28",
+              borderRadius: "28px",
+              padding: '10px 20px 10px 20px', 
+              textShadow: '0 2px 20px rgba(255, 255, 255, 0.8)', 
+              transition: 'color 0.3s',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4)' }}>
+              Play Game
+            </button>
           </Link>
-        </div>
-        <div className="col-4">
+        <br></br>
           <Link to="/leaderboard-game" className="link-decoration">
-            <Card body className="text-center mx-auto mt-4 menu-card">
-              <MdHistoryEdu size="80px" className="my-3" />
-              <h3>Leaaderboard</h3>
-            </Card>
+          <button className='btn-space-menu-quiz' style={{ 
+              fontSize: "20px",
+              backgroundColor: "#4158D0",
+              backgroundImage: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+              // webkitBorderOrderRadius: "28";
+              MozBorderRadius: "28",
+              WebkitBorderRadius: "28",
+              borderRadius: "28px",
+              padding: '10px 20px 10px 20px', 
+              textShadow: '0 2px 20px rgba(255, 255, 255, 0.8)', 
+              transition: 'color 0.3s',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4)' }}>
+              Leaderboard
+            </button>
           </Link>
         </div>
-
+        <div className="col-6">
+          <img src="./leaderboard.png" alt="alt" width='500px' style={{
+            marginTop: "40px"
+          }}/>
+        </div>
       </div>
     </div>
 

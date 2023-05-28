@@ -912,7 +912,6 @@ const handleNext = () => {
   } else {
   return (
     <>
-    <button onClick={handleLogout} className="nav-link ouline=0 border=0 bg-transparent text-primary">Logout</button>
     {showScore? (
       <div className="text-center">
       <div className="row">
@@ -939,7 +938,7 @@ const handleNext = () => {
           <Container>
             <Navbar.Brand href="#home">
               <Link to="/">
-                <button className="login-btn mt-2 arrow-back-btn">
+                <button className="login-btn mt-2 arrow-back-btn-game">
                   <TbArrowBackUp size="40px" />
                 </button>
               </Link>

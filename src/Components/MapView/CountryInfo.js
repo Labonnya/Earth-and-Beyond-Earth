@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from 'react-bootstrap';
-import Accordion from "react-bootstrap/Accordion";
 import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
 
@@ -8,7 +7,6 @@ const CountryInfo = (props) => {
   const [geography, setGeography] = useState("");
   const [government, setGovernment] = useState("");
   const [history, setHistory] = useState("");
-  const [facts, setFacts] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [data, setData] = useState([]);
 
@@ -40,8 +38,9 @@ const CountryInfo = (props) => {
         setGeography(response.data.geography);
         setGovernment(response.data.government);
         setHistory(response.data.history);
-        setFacts(response.data.general_facts);
-        setShowModal(true)
+        if(response.data){
+          setShowModal(true)
+        }
       })
       .catch((error) => {
         setHistory("Country not found");
@@ -61,7 +60,8 @@ const CountryInfo = (props) => {
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-          <ReactCountryFlag
+            <div className="col-6">
+            <ReactCountryFlag
           countryCode={props.code}
           svg
           style={{
@@ -71,19 +71,41 @@ const CountryInfo = (props) => {
           title={props.code}
           className="flag"
         />{" "}
+            </div>
+            <div className="col-6">
+              <h5>General Facts:</h5>
+              <hr></hr>
+              <p className="modal-p">Capital: <span className="light-p">{data && data.capitals}</span></p>
+              <p className="modal-p">Languages: <span className="light-p">{data && data.language}</span></p>
+              <p className="modal-p">Currency: <span className="light-p">{data && data.currency}</span></p>
+              <p className="modal-p">Religion: <span className="light-p">{data && data.religion}</span></p>
+            </div>
           </div>
           <hr />
           <div className="row">
-              <h5>{props.country} Facts</h5>
+              <h5>Know more about {props.country}... </h5>
               <hr />
-              <h6>Geography:</h6>
-              <p className="modal-p">{geography}</p>
-              <h6>Government:</h6>
-              <p className="modal-p">{government}</p>
-              <h6>History:</h6>
-              <p className="modal-p">{history}</p>
-              <h6>General Facts:</h6>
-              <p className="modal-p">{data && data.capitals}</p>
+              <br></br>
+              {geography && (
+    <>
+      <h5>Geography:</h5>
+      <p className="modal-p"><span className="light-pq">{geography}</span></p>
+    </>
+  )}
+  <br></br><hr></hr><br></br>
+              {government && (
+    <>
+      <h5>Government:</h5>
+      <p className="modal-p"><span className="light-pq">{government}</span></p>
+    </>
+  )}
+  <br></br><hr></hr><br></br>
+  {history && (
+    <>
+      <h5>History:</h5>
+      <p className="modal-p"><span className="light-pq">{history}</span></p>
+    </>
+  )}
           </div>
         </Modal.Body>
         <Modal.Footer>

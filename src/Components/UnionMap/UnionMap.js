@@ -12,6 +12,10 @@ import Popover from "react-bootstrap/Popover";
 import LoggedNav from "../Navbar/LoggedNav";
 import UnionOptions from "./UnionOptions";
 import { Modal } from 'react-bootstrap';
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
@@ -312,8 +316,18 @@ const UnionMap = () => {
 
   return (
     <>
-      <LoggedNav />
       <div className="world-map">
+      <Navbar>
+          <Container>
+            <Navbar.Brand href="#home">
+              <Link to="/">
+                <button className="login-btn mt-2 arrow-back-btn-quiz">
+                  <TbArrowBackUp size="40px" />
+                </button>
+              </Link>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
         <div className="text-country">
           <p>Country: {content !== "" && <text>{content}</text>}</p>
         </div>

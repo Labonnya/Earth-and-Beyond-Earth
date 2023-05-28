@@ -24,7 +24,7 @@ const ClimateOption = () => {
 
   return (
     <div>
-      <Button className="btnTravel" onClick={() => handleClick()}>
+      <Button className="climatebutton" onClick={() => handleClick()}>
       Earth's Extreme
       </Button>
 

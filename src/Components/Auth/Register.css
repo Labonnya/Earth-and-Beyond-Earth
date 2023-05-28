@@ -7,6 +7,19 @@
 .box1{
     margin-top: 70px;  
 }
+.register-bg{
+    background-image: url(../../../public/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+    position: relative;
+  }
+  
+  .login-no-overlay {
+    position: relative;
+    z-index: 1; /* Bring the content above the overlay */
+  }
 
 .attr{
     color: #000

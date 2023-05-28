@@ -1,17 +1,32 @@
 import React from 'react';
 import "./SpaceConcept.css";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
 
 
 const SpaceConcept = () => {
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
+  };
   return (
     <>
+           <Navbar>
+      <Container>
+        <Navbar.Brand>
+          <button className="login-btn mt-2 arrow-back-btn-new" onClick={goBack}>
+            <TbArrowBackUp size="40px" />
+          </button>
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
     <div className='space'><br /> <br /> <br />
     <h3 className='header'>Beyond the Stars: Exploring the Mysteries of Space</h3>
         <div className="row spacey">
            
             <div className="col-md-4">
             <div className="card" style={{ width: '18rem' }}>
-        <img className="space1" src="./space2.jpg" alt="Card image cap" />
+        <img className="space1" src="./space2.jpg" alt="Cardcap" />
         <div className="card-body">
           <h5 className="card-title txt1">What is space?</h5>
           <p className="card-text txt" >

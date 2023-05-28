@@ -21,7 +21,6 @@
   }
 
   .modal-p {
-    font-family: 'Wix Madefor Display', sans-serif;
     color: black;
   }
   
@@ -32,6 +31,15 @@
   
   .modal .modal-content {
     width: 100%;
+  }
+
+  .light-p {
+    padding-left: 10px;
+    font-weight: 300;
+  }
+
+  .light-pq {
+    font-weight: 300;
   }
 
   .offcanvas {

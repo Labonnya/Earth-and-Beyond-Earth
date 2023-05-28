@@ -54,6 +54,7 @@ const UpdateMCQ = () => {
         onChange={e => setQuestionId(e.target.value)}
         placeholder="Enter question ID"
       />
+      <br></br><br></br>
       <input
         type="text"
         name="question"
@@ -61,6 +62,7 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter updated question"
       />
+      <br></br><br></br>
       <input
         type="text"
         name="option1"
@@ -68,6 +70,7 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter option 1"
       />
+      <br></br><br></br>
       <input
         type="text"
         name="option2"
@@ -75,6 +78,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter option 2"
       />
+            <br></br><br></br>
+
       <input
         type="text"
         name="option3"
@@ -82,6 +87,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter option 3"
       />
+            <br></br><br></br>
+
       <input
         type="text"
         name="option4"
@@ -89,6 +96,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter option 4"
       />
+            <br></br><br></br>
+
       <input
         type="text"
         name="correct_ans"
@@ -96,6 +105,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter correct answer"
       />
+            <br></br><br></br>
+
       <input
         type="number"
         name="round"
@@ -103,6 +114,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter round"
       />
+            <br></br><br></br>
+
       <input
         type="number"
         name="level"
@@ -110,6 +123,8 @@ const UpdateMCQ = () => {
         onChange={handleInputChange}
         placeholder="Enter level"
       />
+            <br></br><br></br>
+
       <button onClick={handleUpdate}>Update MCQ</button>
     </div>
   );
