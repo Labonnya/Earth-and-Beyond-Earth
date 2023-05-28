@@ -84,21 +84,21 @@ const Travel = () => {
 
  
  const determineFillColor = (geo) => {
-    if (selectedWonder === "GreatPyramidOfGiza") {
+    if (selectedWonder === "Great Pyramid of Giza") {
       return fillColorMapGiza[geo.properties.name] || "grey";
-    } else if (selectedWonder === "HangingGardensOfBabylon") {
+    } else if (selectedWonder === "Hanging Gardens of Babylon") {
       return fillColorMapBabylon[geo.properties.name] || "grey";
-    } else if (selectedWonder === "MausoleumAtHalicarnassus") {
+    } else if (selectedWonder === "Mausoleum at Halicarnassus") {
       return fillColorMapHali[geo.properties.name] || "grey";
-    } else if (selectedWonder === "ColossusOfRhodes") {
+    } else if (selectedWonder === "Colossus of Rhodes") {
       return fillColorMapRhodes[geo.properties.name] || "grey";
-    } else if (selectedWonder === "LighthouseOfAlexandria") {
+    } else if (selectedWonder === "Lighthouse of Alexandria") {
       return fillColorMapLightHouse[geo.properties.name] || "grey";
-    } else if (selectedWonder === "TajMahal") {
+    } else if (selectedWonder === "Taj Mahal") {
       return fillColorMapTajMahal[geo.properties.name] || "grey";
-    } else if (selectedWonder === "GreatWallOfChina") {
+    } else if (selectedWonder === "Great Wall of China") {
       return fillColorMapChina[geo.properties.name] || "grey";
-    } else if (selectedWonder === "MachuPicchu") {
+    } else if (selectedWonder === "Machu Picchu") {
       return fillColorMapMachuPicchu[geo.properties.name] || "grey";
     } else if (selectedWonder === "Petra") {
       return fillColorMapPetra[geo.properties.name] || "grey";
@@ -115,7 +115,7 @@ const Travel = () => {
           <Container>
             <Navbar.Brand href="#home">
               <Link to="/">
-                <button className="login-btn mt-2 arrow-back-btn">
+                <button className="login-btn mt-2 arrow-back-btn-quiz">
                   <TbArrowBackUp size="40px" />
                 </button>
               </Link>

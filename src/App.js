@@ -105,11 +105,9 @@ function App() {
   //Role Management
   function AddingMCQ({children}){
     console.log(authContext.email);
-<<<<<<< HEAD
     if(authContext.email === "a@a.com")
-=======
+
     if(authContext.email=== "a@a.com")
->>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
     {
       return <>{children}</>;
     } 
@@ -120,11 +118,11 @@ function App() {
   }
 
   function DeletingMCQ({children}){
-<<<<<<< HEAD
+
     if(authContext.email === "a@a.com")
-=======
+
     if(authContext.email=== "a@a.com")
->>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
+
     {
       return <>{children}</>;
     }
@@ -135,11 +133,11 @@ function App() {
   }
 
   function UpdatingMCQ({children}){
-<<<<<<< HEAD
+
     if( authContext.email === "a@a.com")
-=======
+
     if(authContext.email=== "a@a.com")
->>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
+
     {
       return <>{children}</>;
     }

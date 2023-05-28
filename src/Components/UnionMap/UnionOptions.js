@@ -1,4 +1,4 @@
-import { Offcanvas, Button } from 'react-bootstrap';
+import { Offcanvas, button } from 'react-bootstrap';
 import './UnionMap.css';
 import React, { useState } from 'react';
 
@@ -41,33 +41,33 @@ const UnionOptions = ({ setSelectedUnion }) => {
 
   return (
     <div>
-      <Button className="union-btn" onClick={() => handleClick('AU')}>
+      <button className="travel-x-btn" onClick={() => handleClick('AU')}>
         AU
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('ASEAN')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('ASEAN')}>
         ASEAN
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('AL')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('AL')}>
         AL
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('EEU')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('EEU')}>
         EEU
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('EU')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('EU')}>
         EU
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('SAARC')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('SAARC')}>
         SAARC
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('OIC')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('OIC')}>
         OIC
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('GCC')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('GCC')}>
         GCC
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('NATO')}>
+      </button>
+      <button className="travel-x-btn" onClick={() => handleClick('NATO')}>
         NATO
-      </Button>
+      </button>
 
       <Offcanvas show={isOffcanvasOpen} onHide={handleCloseOffcanvas} placement="end" backdrop={false} 
         scroll={false} className="offcanvas">

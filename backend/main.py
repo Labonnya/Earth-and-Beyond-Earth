@@ -149,6 +149,116 @@ async def get_country_history(name: str):
     geography, government, history, general_facts = row
     return {'name': name, 'geography': geography, 'government': government, 'history': history, 'general_facts': general_facts}
 
+@app.get("/ocean-info")
+async def get_ocean_info():
+    try:
+        # Connect to the database
+        conn = sqlite3.connect('mapping_the_world.db')
+        conn.row_factory = sqlite3.Row
+        c = conn.cursor()
+
+        # Execute SQL query to fetch all data from the table
+        query = "SELECT title, content, imageURL FROM ocean_info"
+        c.execute(query)
+
+        # Fetch all rows
+        rows = c.fetchall()
+
+        # Close the connection
+        conn.close()
+
+        # If no rows are found, return a 404 response
+        if not rows:
+            return {'error': 'Ocean information not found'}
+
+        # Convert the rows into a list of dictionaries
+        ocean_info = [
+            {'title': row['title'], 'content': row['content'], 'imageURL': row['imageURL']}
+            for row in rows
+        ]
+
+        # Return the fetched data
+        return ocean_info
+
+    except Exception as e:
+        return {'error': str(e)}
+    
+@app.get("/wonders")
+async def get_wonders():
+    try:
+        # Connect to the database
+        conn = sqlite3.connect('mapping_the_world.db')
+        conn.row_factory = sqlite3.Row
+        c = conn.cursor()
+
+        # Execute SQL query to fetch all data from the table
+        query = "SELECT name, description, imageURL, location, yearBuilt, builder FROM wonders"
+        c.execute(query)
+
+        # Fetch all rows
+        rows = c.fetchall()
+
+        # Close the connection
+        conn.close()
+
+        # If no rows are found, return a 404 response
+        if not rows:
+            return {'error': 'Wonders not found'}
+
+        # Convert the rows into a list of dictionaries
+        wonders = [
+            {
+                'name': row['name'],
+                'description': row['description'],
+                'imageURL': row['imageURL'],
+                'location': row['location'],
+                'yearBuilt': row['yearBuilt'],
+                'builder': row['builder']
+            }
+            for row in rows
+        ]
+
+        # Return the fetched data
+        return wonders
+
+    except Exception as e:
+        return {'error': str(e)}
+
+@app.get("/climate")
+async def get_climate():
+    try:
+        # Connect to the database
+        conn = sqlite3.connect('mapping_the_world.db')
+        conn.row_factory = sqlite3.Row
+        c = conn.cursor()
+
+        # Execute SQL query to fetch all data from the table
+        query = "SELECT name, details FROM climate"
+        c.execute(query)
+
+        # Fetch all rows
+        rows = c.fetchall()
+
+        # Close the connection
+        conn.close()
+
+        # If no rows are found, return a 404 response
+        if not rows:
+            return {'error': 'Climate information not found'}
+
+        # Convert the rows into a list of dictionaries
+        climate_info = [
+            {'name': row['name'], 'details': row['details']}
+            for row in rows
+        ]
+
+        # Return the fetched data
+        return climate_info
+
+    except Exception as e:
+        return {'error': str(e)}
+
+
 @app.get("/table-data")
 async def get_table_data():
     conn = sqlite3.connect('blogs.db')
