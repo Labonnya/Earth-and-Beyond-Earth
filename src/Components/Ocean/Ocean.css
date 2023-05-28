@@ -1,0 +1,80 @@
+.ocean{
+    background-image: url(../../../public/ocean.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.ocean button {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none; /* Remove border */
+    background: none;
+    color: #126ba7;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .modal-content button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+.arctic{
+    margin-right: 1100px  !important;
+    
+  }
+
+.atlantic{
+    margin-right: 300px;
+    margin-top: 150px;
+}
+
+.pacific{
+    margin-right: 1000px;
+    margin-top: 50px;
+}
+
+.southern{
+    margin-top: 150px;
+    margin-left: 500px;
+}
+
+.indian{
+   margin-left: 580px;
+   position: relative;
+  top: -240px;
+   
+}

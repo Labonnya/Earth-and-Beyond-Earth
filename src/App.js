@@ -34,6 +34,7 @@ import SpaceTravel from './Components/SpaceTravel/SpaceTravel';
 import LeaderboardQuiz from './Components/Leaderboard/LeaderboardQuiz';
 import GameMode from './Components/Game/GameMode';
 import LeaderboardGame from './Components/Leaderboard/LeaderboardGame';
+import Ocean from './Components/Ocean/Ocean';
 
 
 function App() {
@@ -95,6 +96,7 @@ function App() {
       <Route path="/gameMode" element={<GameMode/>} />
       <Route path="/gamepage" element={<GamePage/>} />
       <Route path="/leaderboard-game" element={<LeaderboardGame/>} />
+      <Route path="/ocean" element={<Ocean />} />
 
     </Routes>
     </div>

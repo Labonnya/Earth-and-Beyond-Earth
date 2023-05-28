@@ -12,7 +12,8 @@ const ModalView = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>{props.country}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!</Modal.Body>
       </Modal>
     </div>
   )
