@@ -72,7 +72,7 @@ def createUserInfo(request: schema.userInfo, db: Session=Depends(database.get_db
         },
         headers={ "Private-Key": PRIVATE_KEY }
     )
-    registration_email(request.email, "Welcome to Mapping the World Website!", "Thanks for registration!")
+    #registration_email(request.email, "Welcome to Mapping the World Website!", "Thanks for registration!")
     return {"fullName": new_user.fullName, "email": new_user.email, "country": new_user.country, "current_level": new_user.current_level}
 
 #Get user by email
