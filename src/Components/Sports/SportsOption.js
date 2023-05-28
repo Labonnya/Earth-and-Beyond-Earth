@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
 import './SportsMap.css';
+import './Sports.css';
 
 const SportsOptions = ({ setSelectedSports }) => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
@@ -72,19 +73,22 @@ const SportsOptions = ({ setSelectedSports }) => {
 
   return (
     <div>
-      <Button className="union-btn" onClick={() => handleClick('Cricket')}>
+      <div className='top-dibo'>
+      <button className="sports-btn" onClick={() => handleClick('Cricket')}>
         Cricket
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('Football')}>
+      </button>
+      <button className="sports-btn" onClick={() => handleClick('Football')}>
         Football
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('Basketball')}>
+      </button>
+      <button className="sports-btn" onClick={() => handleClick('Basketball')}>
         Basketball
-      </Button>
-      <Button className="union-btn" onClick={() => handleClick('Hockey')}>
+      </button>
+      <button className="sports-btn" onClick={() => handleClick('Hockey')}>
         Hockey
-      </Button>
+      </button>
 
+      </div>
+  
       <Offcanvas show={isOffcanvasOpen} onHide={handleCloseOffcanvas} placement="end" backdrop={false} scroll={false} className="offcanvas">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{selectedSportInfo.name}</Offcanvas.Title>

@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
 import './Climate.css'
 
+
 const ClimateOption = () => {
   // State variables for Offcanvas
-
 
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
 
   const handleClick = () => {
-   
-    setIsOffcanvasOpen(true);
-    // Set the selected wonder's name and description
-   
+    setIsOffcanvasOpen(true);   
   };
 
   const handleCloseOffcanvas = () => {
-   
     setIsOffcanvasOpen(false);
   };
 
 
   return (
     <div>
-      <Button className="climatebutton" onClick={() => handleClick()}>
+      <button className="sports-btn" onClick={() => handleClick()}>
       Earth's Extreme
-      </Button>
+      </button>
 
       <Offcanvas show={isOffcanvasOpen} onHide={handleCloseOffcanvas} placement="end" backdrop={false} scroll={false} className="offcanvas">
   <Offcanvas.Header closeButton>

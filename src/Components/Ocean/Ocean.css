@@ -32,7 +32,6 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
-    max-width: 400px;
     text-align: center;
   }
   
@@ -54,7 +53,8 @@
 
 .arctic{
     margin-right: 1100px  !important;
-    
+    background: none;
+    border: none;
   }
 
 .atlantic{
@@ -76,5 +76,14 @@
    margin-left: 580px;
    position: relative;
   top: -240px;
-   
+}
+
+.arctic-btn:hover, .atlantic-btn:hover, .pacific-btn:hover, .southern-btn:hover, .indian-btn:hover {
+  transform: scale(1.2);
+  color: #202427;
+  box-shadow: -4px 2px 56px 20px #e5e1db;
+  border-radius: 80%;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
 }

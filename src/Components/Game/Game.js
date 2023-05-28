@@ -924,7 +924,7 @@ const handleNext = () => {
       
       <div className="row">
         <div className="col d-flex justify-content-center mt-3">
-          <button type="submit" onClick={resetQuiz} className="btn btn-primary">
+          <button type="submit" onClick={resetQuiz} className="travel-x-btn btn-sm ml-3">
             Play Again
           </button>
         </div>
@@ -958,18 +958,18 @@ const handleNext = () => {
             : countryListAllIsoData[currentQuestion].name}
         </span>
         {currentQuestion !== 9 ? (
-          <button onClick={handleNext} className="btn btn-primary btn-sm ml-3 custom-button">
+          <button onClick={handleNext} className="travel-x-btn btn-sm ml-3">
             Next
           </button>
           ) : (
-          <button onClick={() => setShowScore(true)} className="btn btn-primary ml-3 custom-button">
+          <button onClick={() => setShowScore(true)} className="travel-x-btn btn-sm ml-3">
           Show Score
           </button>
         )}
         </p>
         </div>
 
-        <div className="map-view">
+        <div className="map-view mt-3">
           <div className="row">
             <div className="col-10">
               <ComposableMap data-tip="" projection="geoMercator">
