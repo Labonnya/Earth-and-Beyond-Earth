@@ -15,12 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import Union
 import pdfkit
 
-
-
-
 app = FastAPI()
-
-
 
 # Configure CORS middleware
 app.add_middleware(
@@ -39,124 +34,99 @@ app.include_router(user.router)
 app.include_router(plays.router)
 app.include_router(otp.router)
 
-url = 'https://www.infoplease.com/countries'
+@app.post("/sync")
+async def sync_data():
+    url = 'https://www.infoplease.com/countries'
 
-response = requests.get(url)
+    response = requests.get(url)
 
-soup = BeautifulSoup(response.text, 'html.parser')
-
-country_links = soup.find_all('a', {'class': 'name-anchor'})
-countries = [link['href'] for link in country_links]
-
-to_remove = ['/countries/timor-leste','/countries/north-macedonia','/countries/united-kingdom/northern-ireland','/countries/palestine','/countries/sao-tome-principe','/countries/st-vincent-and-the-grenadines','/countries/western-sahara']
-
-for item in to_remove:
-    if item in countries:
-        countries.remove(item)
-
-# Connect to the database
-conn = sqlite3.connect('blogs.db')
-c = conn.cursor()
-
-# Create the countries table if it does not exist
-c.execute('''
-    CREATE TABLE IF NOT EXISTS countries (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        geography TEXT,
-        government TEXT,
-        history TEXT,
-        general_facts TEXT
-    )
-''')
-
-c.execute('''
-    CREATE TABLE IF NOT EXISTS planets (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        title TEXT,
-        description TEXT,
-        named TEXT,
-        diameter TEXT,
-        orbit TEXT,
-        day TEXT,
-        moons INTEGER,
-        img1 TEXT,
-        img2 TEXT
-    )
-''')
-
-# Insert the data into the countries table
-for country in countries:
-    # Generate a custom URL for the current country
-    country_url = f'https://www.infoplease.com{country}'
-
-    # Make a request to the country page and parse the HTML content
-    response = requests.get(country_url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Find the section that contains the history information
-    history_section = soup.find('div', {'class': 'robot-content'})
+    country_links = soup.find_all('a', {'class': 'name-anchor'})
+    countries = [link['href'] for link in country_links]
 
-    # Extract the text content of the history section
-    history_text = history_section.get_text()
+    to_remove = ['/countries/timor-leste','/countries/north-macedonia','/countries/united-kingdom/northern-ireland','/countries/palestine','/countries/sao-tome-principe','/countries/st-vincent-and-the-grenadines','/countries/western-sahara']
 
-    country = country.split("/")[-1]
+    for item in to_remove:
+        if item in countries:
+            countries.remove(item)
 
-    # Initialize variables to store the information
-    geo_info = ''
-    govt_info = ''
-    history_info = ''
-
-    # Find all h2, h3, and h4 tags
-    headers = soup.find_all(['h2', 'h3', 'h4', 'h5'])
-
-    # Loop through the headers and extract the information
-    try:
-        for header in headers:
-            # Get the text content of the header
-            header_text = header.get_text().strip()
-            
-            # Find the corresponding information based on the header text
-            if header_text == 'Geography':
-                # Append the information to the geography variable
-                for tag in header.find_next_siblings():
-                    if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
-                        break
-                    elif tag.name == 'p':
-                        geo_info += tag.get_text()
-            elif header_text == 'Government':
-                # Append the information to the government variable
-                for tag in header.find_next_siblings():
-                    if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
-                        break
-                    elif tag.name == 'p' and not tag.find('a') and not tag.text.strip().startswith('&nbsp;'):
-                        govt_info += tag.get_text()
-            elif header_text == 'History':
-                # Append the information to the history variable
-                for tag in header.find_next_siblings():
-                    if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
-                        break
-                    elif tag.name == 'p':
-                        history_info += tag.get_text()
-
-    except:
-        pass
-    
-    factbook_section = soup.find("div", {"class": "country-main"})
-    fact_items = factbook_section.find_all("ul")
-
-    facts = ''
-    for item in fact_items:
-        fact_paragraphs = item.find_all("p")
-        for fact in fact_paragraphs:
-            facts += fact.get_text() + '\n'
+    # Connect to the database
+    conn = sqlite3.connect('blogs.db')
+    c = conn.cursor()
 
     # Insert the data into the countries table
-    c.execute('INSERT INTO countries (name, geography, government, history, general_facts) VALUES (?, ?, ?, ?, ?)', (country, geo_info, govt_info, history_info, facts))
-# Commit the changes and close the connection
-conn.commit()
-conn.close()
+    for country in countries:
+        # Generate a custom URL for the current country
+        country_url = f'https://www.infoplease.com{country}'
+
+        # Make a request to the country page and parse the HTML content
+        response = requests.get(country_url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Find the section that contains the history information
+        history_section = soup.find('div', {'class': 'robot-content'})
+
+        # Extract the text content of the history section
+        history_text = history_section.get_text()
+
+        country = country.split("/")[-1]
+
+        # Initialize variables to store the information
+        geo_info = ''
+        govt_info = ''
+        history_info = ''
+
+        # Find all h2, h3, and h4 tags
+        headers = soup.find_all(['h2', 'h3', 'h4', 'h5'])
+
+        # Loop through the headers and extract the information
+        try:
+            for header in headers:
+                # Get the text content of the header
+                header_text = header.get_text().strip()
+                
+                # Find the corresponding information based on the header text
+                if header_text == 'Geography':
+                    # Append the information to the geography variable
+                    for tag in header.find_next_siblings():
+                        if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
+                            break
+                        elif tag.name == 'p':
+                            geo_info += tag.get_text()
+                elif header_text == 'Government':
+                    # Append the information to the government variable
+                    for tag in header.find_next_siblings():
+                        if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
+                            break
+                        elif tag.name == 'p' and not tag.find('a') and not tag.text.strip().startswith('&nbsp;'):
+                            govt_info += tag.get_text()
+                elif header_text == 'History':
+                    # Append the information to the history variable
+                    for tag in header.find_next_siblings():
+                        if tag.name == 'h2' or tag.name == 'h3' or tag.name == 'h4' or tag.name == 'h5':
+                            break
+                        elif tag.name == 'p':
+                            history_info += tag.get_text()
+
+        except:
+            pass
+        
+        factbook_section = soup.find("div", {"class": "country-main"})
+        fact_items = factbook_section.find_all("ul")
+
+        facts = ''
+        for item in fact_items:
+            fact_paragraphs = item.find_all("p")
+            for fact in fact_paragraphs:
+                facts += fact.get_text() + '\n'
+
+        # Insert the data into the countries table
+        c.execute('INSERT INTO countries (name, geography, government, history, general_facts) VALUES (?, ?, ?, ?, ?)', (country, geo_info, govt_info, history_info, facts))
+    # Commit the changes and close the connection
+    conn.commit()
+    conn.close()
+    return {"message": "Data sync complete!"}
 
 @app.get('/country/{name}')
 async def get_country_history(name: str):
@@ -178,62 +148,6 @@ async def get_country_history(name: str):
     # Otherwise, return the name and history data
     geography, government, history, general_facts = row
     return {'name': name, 'geography': geography, 'government': government, 'history': history, 'general_facts': general_facts}
-
-def scrape_and_insert_data():
-    url = 'https://www.tutorialspoint.com/general_knowledge/general_knowledge_countries_with_capitals.htm'
-    response = requests.get(url)
-
-    # Parse the HTML content
-    soup = BeautifulSoup(response.content, 'html.parser')
-
-    # Find the table element by its class or ID
-    table = soup.find('table', {'class': 'table'})
-
-    # Extract the table headers
-    headers = [th.text for th in table.select('th')]
-
-    # Extract the table rows
-    rows = []
-    for row in table.select('tr')[1:]:
-        row_data = [td.text for td in row.select('td')]
-        rows.append(row_data)
-
-    # Connect to the database
-    conn = sqlite3.connect('blogs.db')
-    c = conn.cursor()
-
-    # Create the countries table if it does not exist
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS download (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            capitals TEXT,
-            currency TEXT,
-            language TEXT,
-            religion TEXT
-        )
-    ''')
-
-    # Insert the scraped data into the countries table
-    for row in rows:
-        name = row[0]
-        capitals = row[1]
-        currency = row[2]
-        language = row[3]
-        religion = row[4]
-
-        # Execute the SQL INSERT statement
-        c.execute('''
-            INSERT INTO download (name, capitals, currency, language, religion)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (name, capitals, currency, language, religion))
-
-    # Commit the changes and close the connection
-    conn.commit()
-    conn.close()
-
-# Call the function to scrape and insert the data
-scrape_and_insert_data()
 
 @app.get("/table-data")
 async def get_table_data():
