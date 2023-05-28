@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
 
 
 function AddMCQ() {
@@ -28,6 +31,10 @@ function AddMCQ() {
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
   };
 
   const handleSubmit = (event) => {
@@ -81,12 +88,24 @@ function AddMCQ() {
 
   return (
     <div>
-      <h1>Create MCQ</h1>
+        <Navbar>
+          <Container>
+            <Navbar.Brand href="#home">
+                <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
+                  <TbArrowBackUp size="40px" />
+                </button>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+    <div className="card card-add p-5" style={{
+      width: "800px"
+    }}>
+      <h1 className="mb-5">Create MCQ</h1>
       {errorMessage && <p>{errorMessage}</p>}
       {successMessage && <p>{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Question:</label>
+          <label className="label-mcq">Question:</label>
           <input
             type="text"
             value={question}
@@ -95,7 +114,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 1:</label>
+          <label className="label-mcq">Option 1:</label>
           <input
             type="text"
             value={option1}
@@ -104,7 +123,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 2:</label>
+          <label className="label-mcq">Option 2:</label>
           <input
             type="text"
             value={option2}
@@ -113,7 +132,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 3:</label>
+          <label className="label-mcq">Option 3:</label>
           <input
             type="text"
             value={option3}
@@ -122,7 +141,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 4:</label>
+          <label className="label-mcq">Option 4:</label>
           <input
             type="text"
             value={option4}
@@ -131,7 +150,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Correct Answer:</label>
+          <label className="label-mcq">Correct Answer:</label>
           <input
             type="text"
             value={correctAnswer}
@@ -140,7 +159,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Round:</label>
+          <label className="label-mcq">Round:</label>
           <input
             type="text"
             value={round}
@@ -149,7 +168,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Level:</label>
+          <label className="label-mcq">Level:</label>
           <input
             type="text"
             value={level}
@@ -158,7 +177,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Quiz ID:</label>
+          <label className="label-mcq">Quiz ID:</label>
           <input
             type="text"
             value={quizId}
@@ -169,7 +188,7 @@ function AddMCQ() {
         <button type="submit">Create MCQ</button>
       </form>
     </div>
-    
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ const SpaceMIssion = () => {
   };
   return (
     <>
-            <Navbar>
+        <Navbar>
           <Container>
             <Navbar.Brand href="#home">
                 <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
