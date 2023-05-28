@@ -3,17 +3,20 @@ import "./Navbar.css";
 import Menu from "../Menu/Menu";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Hooks/AuthContext";
+import axios from 'axios';
 
 const Navigation = () => {
 
   const authContext = useContext(AuthContext);
 
-  const handleClick = () => {
-    console.log("click");
-    const element = document.getElementById("menu");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleSync = () => {
+    axios.post("http://localhost:8000/sync")
+      .then(response => {
+        console.log(response.data); // Optional: handle the response from the server
+      })
+      .catch(error => {
+        console.error(error); // Optional: handle any errors that occur
+      });
   };
 
   const handleLogout = () => {
@@ -76,6 +79,14 @@ const Navigation = () => {
         </div>
         <div className="col-2">
           <Menu/>
+          {authContext.email === 'a@a.com' ? (
+            <div className="real-nav-menu">
+              <button className='sync-btn' onClick={handleSync}>Sync Now</button>
+            </div>
+            ) : (
+              <>
+              </>
+            )}
         </div>
       </div>
     </div>
