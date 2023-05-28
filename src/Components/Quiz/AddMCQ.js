@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { TbArrowBackUp } from "react-icons/tb";
 
 
 function AddMCQ() {
@@ -14,6 +17,10 @@ function AddMCQ() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+
+  const goBack = () => {
+    window.history.back(); // Go back to the immediate previous page
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,12 +73,24 @@ function AddMCQ() {
 
   return (
     <div>
-      <h1 className="text-light">Create MCQ</h1>
+        <Navbar>
+          <Container>
+            <Navbar.Brand href="#home">
+                <button className="login-btn mt-2 arrow-back-btn" onClick={goBack}>
+                  <TbArrowBackUp size="40px" />
+                </button>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+    <div className="card card-add p-5" style={{
+      width: "800px"
+    }}>
+      <h1 className="mb-5">Create MCQ</h1>
       {errorMessage && <p>{errorMessage}</p>}
       {successMessage && <p>{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label className="text-light">Question:</label>
+          <label className="label-mcq">Question:</label>
           <input
             type="text"
             value={question}
@@ -80,7 +99,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Option 1:</label>
+          <label className="label-mcq">Option 1:</label>
           <input
             type="text"
             value={option1}
@@ -89,7 +108,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Option 2:</label>
+          <label className="label-mcq">Option 2:</label>
           <input
             type="text"
             value={option2}
@@ -98,7 +117,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Option 3:</label>
+          <label className="label-mcq">Option 3:</label>
           <input
             type="text"
             value={option3}
@@ -107,7 +126,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Option 4:</label>
+          <label className="label-mcq">Option 4:</label>
           <input
             type="text"
             value={option4}
@@ -116,7 +135,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Correct Answer:</label>
+          <label className="label-mcq">Correct Answer:</label>
           <input
             type="text"
             value={correctAnswer}
@@ -125,7 +144,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Round:</label>
+          <label className="label-mcq">Round:</label>
           <input
             type="text"
             value={round}
@@ -134,7 +153,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Level:</label>
+          <label>Level:</label>
           <input
             type="text"
             value={level}
@@ -143,7 +162,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label className="text-light">Quiz ID:</label>
+          <label>Quiz ID:</label>
           <input
             type="text"
             value={quizId}
@@ -154,7 +173,7 @@ function AddMCQ() {
         <button type="submit">Create MCQ</button>
       </form>
     </div>
-    
+    </div>
   );
 }
 

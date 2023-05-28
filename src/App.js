@@ -34,6 +34,7 @@ import SpaceTravel from './Components/SpaceTravel/SpaceTravel';
 import LeaderboardQuiz from './Components/Leaderboard/LeaderboardQuiz';
 import GameMode from './Components/Game/GameMode';
 import LeaderboardGame from './Components/Leaderboard/LeaderboardGame';
+import Ocean from './Components/Ocean/Ocean';
 
 
 function App() {
@@ -55,10 +56,6 @@ function App() {
       setPassword(authContext.password);
     }
   }, []);
-
-  const handleLogout = () => {
-    authContext.logout();
-  };
 
   return (
     <div className="App">
@@ -99,6 +96,7 @@ function App() {
       <Route path="/gameMode" element={<GameMode/>} />
       <Route path="/gamepage" element={<GamePage/>} />
       <Route path="/leaderboard-game" element={<LeaderboardGame/>} />
+      <Route path="/ocean" element={<Ocean />} />
 
     </Routes>
     </div>
@@ -107,7 +105,11 @@ function App() {
   //Role Management
   function AddingMCQ({children}){
     console.log(authContext.email);
+<<<<<<< HEAD
     if(authContext.email === "a@a.com")
+=======
+    if(authContext.email=== "a@a.com")
+>>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
     {
       return <>{children}</>;
     } 
@@ -118,7 +120,11 @@ function App() {
   }
 
   function DeletingMCQ({children}){
+<<<<<<< HEAD
     if(authContext.email === "a@a.com")
+=======
+    if(authContext.email=== "a@a.com")
+>>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
     {
       return <>{children}</>;
     }
@@ -129,7 +135,11 @@ function App() {
   }
 
   function UpdatingMCQ({children}){
+<<<<<<< HEAD
     if( authContext.email === "a@a.com")
+=======
+    if(authContext.email=== "a@a.com")
+>>>>>>> e2d3469c754081fe02e3d8997c00cf303cef6734
     {
       return <>{children}</>;
     }

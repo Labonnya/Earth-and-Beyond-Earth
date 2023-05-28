@@ -30,7 +30,7 @@ const DeleteMCQ = () => {
   };
 
   return (
-    <div>
+    <div className='delete-quiz'>
       <input
         type="text"
         value={questionId}

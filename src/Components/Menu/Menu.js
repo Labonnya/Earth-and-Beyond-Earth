@@ -14,9 +14,9 @@ const Menu = () => {
           <Link to='/map' className="link-decoration">
             <p>Countries</p>
           </Link>
-          {/* <Link to='/ocean' className="link-decoration">
+          <Link to='/ocean' className="link-decoration">
             <p>Ocean</p>
-          </Link> */}
+          </Link> 
           <Link to='/union' className="link-decoration">
             <p>Union</p>
           </Link>
