@@ -28,6 +28,7 @@ def createMCQ(request: schema.mcq, db: Session=Depends(database.get_db)):
     db.refresh(new_question)
     return new_question
 
+
 #Get question based on level
 @router.get('/{level}/getSpecificMCQ', response_model=List[schema.mcq])
 def showSpecificQuestions(level:int, db: Session=Depends(database.get_db)):

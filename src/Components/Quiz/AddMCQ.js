@@ -15,6 +15,7 @@ function AddMCQ() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleDeleteQuestion = (questionId) => {
+
     // Make the API request to delete the question
     fetch(`http://localhost:8000/mcq/${questionId}/deleteMCQ`, {
       method: "DELETE",
@@ -81,12 +82,12 @@ function AddMCQ() {
 
   return (
     <div>
-      <h1>Create MCQ</h1>
+      <h1 className="text-light">Create MCQ</h1>
       {errorMessage && <p>{errorMessage}</p>}
       {successMessage && <p>{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Question:</label>
+          <label className="text-light">Question:</label>
           <input
             type="text"
             value={question}
@@ -95,7 +96,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 1:</label>
+          <label className="text-light">Option 1:</label>
           <input
             type="text"
             value={option1}
@@ -104,7 +105,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 2:</label>
+          <label className="text-light">Option 2:</label>
           <input
             type="text"
             value={option2}
@@ -113,7 +114,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 3:</label>
+          <label className="text-light">Option 3:</label>
           <input
             type="text"
             value={option3}
@@ -122,7 +123,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Option 4:</label>
+          <label className="text-light">Option 4:</label>
           <input
             type="text"
             value={option4}
@@ -131,7 +132,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Correct Answer:</label>
+          <label className="text-light">Correct Answer:</label>
           <input
             type="text"
             value={correctAnswer}
@@ -140,7 +141,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Round:</label>
+          <label className="text-light">Round:</label>
           <input
             type="text"
             value={round}
@@ -149,7 +150,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Level:</label>
+          <label className="text-light">Level:</label>
           <input
             type="text"
             value={level}
@@ -158,7 +159,7 @@ function AddMCQ() {
           />
         </div>
         <div>
-          <label>Quiz ID:</label>
+          <label className="text-light">Quiz ID:</label>
           <input
             type="text"
             value={quizId}
