@@ -2,7 +2,7 @@
 
 This is a dynamic website that provides an immersive and educational experience for users to explore various countries and the solar system. With a clickable world map as the centerpiece, users can navigate and discover detailed information about different countries, including basic country info, flags, sports, climate, unions, and oceans. The website also features a chat system for users to engage in discussions and share insights, a quiz system to test their knowledge, and an interactive game for entertainment. Additionally, users can explore the solar system by clicking on celestial bodies to access information and fascinating facts. The platform offers an engaging and interactive way for users to learn about the world and beyond.
 
-
+Google Drive Link for Video - https://drive.google.com/file/d/1Vtf4uTbnjOIINqDfpX8U1MB8yhn8nUFM/view?usp=sharing
 
 ![Screenshot (698)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/fe1a9ecd-87a8-454a-945e-72d8c37319f1)
 
@@ -45,6 +45,33 @@ This is a dynamic website that provides an immersive and educational experience 
 ![Screenshot (723)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/71825bbd-21e4-44b2-9b75-168787b77d2c)
 
 ![Screenshot (722)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/2386fae4-f086-40d7-bab4-cb1b20d95eb7)
+
+![Screenshot (724)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/98b4db49-7119-41e1-8586-517a3a0b5bc4)
+
+![Screenshot (725)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/26d46a78-b90b-4063-8db6-176a2de8a4d5)
+
+![Screenshot (726)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/381c220d-6bf0-48ab-a93f-a6c4080ec94d)
+
+![Screenshot (727)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/95d29c95-d97c-429f-bf9c-d2861334d2c2)
+
+![Screenshot (728)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/8de7df8c-4126-4b61-a34b-0fe681ef95c3)
+
+![Screenshot (729)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/16d9ed40-5721-4dc6-8d66-02a92cc780ca)
+
+![Screenshot (730)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/ecfa318c-180e-45ef-8365-3b26942e3a66)
+
+![Screenshot (731)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/f8b45b42-5550-40fb-8972-c3793be7aebf)
+
+![Screenshot (732)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/552f0516-b50d-49d0-afe1-1566b151a59c)
+
+![Screenshot (733)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/53d1ff52-0afb-4507-b466-1fd4d8c751cd)
+
+![Screenshot (734)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/2ea5f0ef-77e2-4f65-bbc2-61ba86237b02)
+
+
+
+
+
 
 
 
