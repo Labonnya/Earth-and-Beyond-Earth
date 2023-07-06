@@ -60,14 +60,13 @@ Google Drive Link for Video - https://drive.google.com/file/d/1Vtf4uTbnjOIINqDfp
 
 ![Screenshot (730)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/ecfa318c-180e-45ef-8365-3b26942e3a66)
 
-![Screenshot (731)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/f8b45b42-5550-40fb-8972-c3793be7aebf)
+![Screenshot (736)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/b3521e10-cb33-462e-a966-250f4d4adea2)
 
-![Screenshot (732)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/552f0516-b50d-49d0-afe1-1566b151a59c)
+![Screenshot (739)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/f1b766c3-7d66-46ec-bd00-8ea285135249)
 
-![Screenshot (733)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/53d1ff52-0afb-4507-b466-1fd4d8c751cd)
+![Screenshot (737)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/9898df85-db6c-4eca-9630-904302b1ecaf)
 
-![Screenshot (734)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/2ea5f0ef-77e2-4f65-bbc2-61ba86237b02)
-
+![Screenshot (734)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/f3fe42cd-ff97-4304-80bb-17f2fa217069)
 
 
 
