@@ -40,6 +40,11 @@ This is a dynamic website that provides an immersive and educational experience 
 
 ![Screenshot (720)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/41d743a8-2faa-47b9-9346-62f073627175)
 
+![Screenshot (721)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/e9655520-dd8f-436f-9927-7cb68aa1fae8)
+
+![Screenshot (723)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/71825bbd-21e4-44b2-9b75-168787b77d2c)
+
+![Screenshot (722)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/2386fae4-f086-40d7-bab4-cb1b20d95eb7)
 
 
 
