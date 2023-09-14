@@ -5,10 +5,15 @@ This is a dynamic website that provides an immersive and educational experience 
 # Features
 
 **Clickable world map:** Users can explore various countries and view detailed information, such as basic country info, flags, sports, climate, unions, and oceans.
+
 **Chat system:** Users can engage in discussions and share insights about different countries and the solar system.
+
 **Quiz system:** Users can test their knowledge about different countries and the solar system with gamification feature. 
+
 **Interactive game:** Users can play an interactive game to learn about different countries and the solar system in a fun and engaging way.
+
 **Solar system exploration:** Users can click on celestial bodies to access information and fascinating facts.
+
 
 # Video Demonstration
 https://drive.google.com/file/d/1Vtf4uTbnjOIINqDfpX8U1MB8yhn8nUFM/view?usp=sharing
