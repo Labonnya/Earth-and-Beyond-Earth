@@ -1,8 +1,11 @@
-
+# Earth & Beyond Earth
 
 This is a dynamic website that provides an immersive and educational experience for users to explore various countries and the solar system. With a clickable world map as the centerpiece, users can navigate and discover detailed information about different countries, including basic country info, flags, sports, climate, unions, and oceans. The website also features a chat system for users to engage in discussions and share insights, a quiz system to test their knowledge, and an interactive game for entertainment. Additionally, users can explore the solar system by clicking on celestial bodies to access information and fascinating facts. The platform offers an engaging and interactive way for users to learn about the world and beyond.
 
-Google Drive Link for Video - https://drive.google.com/file/d/1Vtf4uTbnjOIINqDfpX8U1MB8yhn8nUFM/view?usp=sharing
+# Video Demonstration
+https://drive.google.com/file/d/1Vtf4uTbnjOIINqDfpX8U1MB8yhn8nUFM/view?usp=sharing
+
+# Screenshots
 
 ![Screenshot (698)](https://github.com/Labonnya/Earth-and-Beyond-Earth/assets/75426550/fe1a9ecd-87a8-454a-945e-72d8c37319f1)
 
